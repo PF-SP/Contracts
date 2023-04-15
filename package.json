@@ -1,0 +1,45 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "Dev Environment For Contract Deployment",
+  "main": "index.js",
+  "repository": "git@github.com:PF-SP/Contracts.git",
+  "author": "nfel <nfilsaraee@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "mtest": "mocha 'test/**/*.ts'",
+    "test": "npx hardhat test",
+    "deploy-local": "npx hardhat run --network localhost scripts/deploy.ts",
+    "deploy-pol-testnet": "npx hardhat run --network  scripts/deploy.ts"
+  },
+  "loader": "ts-node/esm",
+  "devDependencies": {
+    "@ethersproject/abi": "^5.4.7",
+    "@ethersproject/providers": "^5.4.7",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
+    "@openzeppelin/contracts": "^4.8.2",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.2",
+    "@types/jest": "^29.5.0",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.2.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.13.1",
+    "hardhat-gas-reporter": "^1.0.8",
+    "remixd": "^0.2.4",
+    "solidity-coverage": "^0.8.0",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.0"
+  },
+  "dependencies": {
+    "ethereum-waffle": "^4.0.10",
+    "mocha": "^10.2.0",
+    "solc": "^0.8.19",
+    "typescript": "^5.0.4"
+  }
+}
