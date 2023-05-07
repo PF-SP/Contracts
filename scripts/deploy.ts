@@ -1,11 +1,17 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const Lock = await ethers.getContractFactory("SunNFT");
+  console.log({ ethers });
+  const SunCity = await ethers.getContractFactory("SunCity");
+  console.log({ SunCity });
   const CollectionNumber = 1;
-  const nft = await Lock.deploy(`SunCity-NFT-Col${CollectionNumber}`, {
-    value: 0,
-  });
+  const nft = await SunCity.deploy(
+    `SunCity-NFT-Col${CollectionNumber}`,
+    "SUN-NFT",
+    {
+      value: 0,
+    }
+  );
 
   await nft.deployed();
 
