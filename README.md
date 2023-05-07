@@ -14,4 +14,8 @@ Contract is Compiled with:
 - optimizer@200runs
 
 ### Dir
-[Binaries](bin/)
+[Artifacts](out/)
+
+
+### Deployed
+[Attempt-I](https://mumbai.polygonscan.com/address/0x1b9c8dfa28b08ef6f31edb0a74237fecc774c1e4)

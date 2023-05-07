@@ -10,7 +10,8 @@ async function main() {
     `SunCity-NFT-Col${CollectionNumber}`,
     "SUN-NFT",
     {
-      gasPrice: gasPrice,
+      gasLimit: "3000000",
+      gasPrice: "2100000022",
       value: 0,
     }
   );

@@ -8,6 +8,7 @@ import "./openzeppelin/contracts/access/Ownable.sol";
 
 contract SunCity is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
+    // constructor() ERC721("SunCity", _symbol) {}
 
     function _baseURI() internal pure override returns (string memory) {
         return "Sun.city";
