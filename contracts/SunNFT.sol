@@ -7,6 +7,7 @@ import "./openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "./openzeppelin/contracts/access/Ownable.sol";
 
 contract SunCity is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
+    uint256 public totalSupply; 
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
     // constructor() ERC721("SunCity", _symbol) {}
 
@@ -20,6 +21,7 @@ contract SunCity is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+        totalSupply += 1;
     }
 
     // The following functions are overrides required by Solidity.
