@@ -1,0 +1,1 @@
+solc contracts/Sun721NFT.sol --bin --abi --overwrite --optimize --optimize-runs 1000 --combined-json abi,asm,ast,bin,bin-runtime,devdoc,function-debug,function-debug-runtime,generated-sources,generated-sources-runtime,hashes,metadata,opcodes,srcmap,srcmap-runtime,storage-layout,userdoc -o out/721/ --gas >out/721/gas.profile

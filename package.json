@@ -15,7 +15,7 @@
     "deploy-pol-testnet": "npx hardhat run --network polygonTestNet  scripts/deploy-poly.ts",
     "local-node": "npx hardhat node ",
     "fork-node": "npx hardhat node --fork https://eth-mainnet.g.alchemy.com/v2/SZ6X0oo_9axubB96Eo-98PKpjJBjxENW",
-    "build": "solc contracts/SunNFT.sol --bin --abi --overwrite --optimize --optimize-runs 1000 --combined-json abi,asm,ast,bin,bin-runtime,devdoc,function-debug,function-debug-runtime,generated-sources,generated-sources-runtime,hashes,metadata,opcodes,srcmap,srcmap-runtime,storage-layout,userdoc -o out/ --gas > out/gas.profile"
+    "build": "./cmd/compile-721.sh & ./cmd/compile-1155.sh & ./cmd/compile-20.sh"
   },
   "loader": "ts-node/esm",
   "devDependencies": {

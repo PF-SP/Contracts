@@ -1,17 +1,17 @@
 
-======= contracts/SunNFT.sol:SunCity =======
+======= contracts/Sun721NFT.sol:SunCity =======
 Gas estimation:
 construction:
-   infinite + 1443200 = infinite
+   infinite + 1468800 = infinite
 external:
    approve(address,uint256):	infinite
-   balanceOf(address):	2678
+   balanceOf(address):	2635
    burn(uint256):	infinite
    getApproved(uint256):	4792
    isApprovedForAll(address,address):	infinite
    name():	infinite
    owner():	2376
-   ownerOf(uint256):	2599
+   ownerOf(uint256):	2621
    renounceOwnership():	infinite
    safeMint(address,uint256,string):	infinite
    safeTransferFrom(address,address,uint256):	infinite
@@ -20,6 +20,7 @@ external:
    supportsInterface(bytes4):	infinite
    symbol():	infinite
    tokenURI(uint256):	infinite
+   totalSupply():	2341
    transferFrom(address,address,uint256):	infinite
    transferOwnership(address):	28424
 internal:
