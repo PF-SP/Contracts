@@ -3,7 +3,8 @@ node_modules
 bin/
 
 .env
-coverage
+yarn.lock
+.coverage
 coverage.json
 typechain
 typechain-types
