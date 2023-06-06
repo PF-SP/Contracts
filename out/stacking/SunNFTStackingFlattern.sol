@@ -1,8 +1,5 @@
-// Sources flattened with hardhat v2.13.1 https://hardhat.org
-
-// File contracts/openzeppelin/contracts/utils/Context.sol
-
 // SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
 pragma solidity ^0.8.0;
@@ -30,7 +27,7 @@ abstract contract Context {
 
 // File contracts/openzeppelin/contracts/access/Ownable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)
 
 pragma solidity ^0.8.0;
@@ -115,7 +112,7 @@ abstract contract Ownable is Context {
 
 // File contracts/openzeppelin/contracts/utils/introspection/IERC165.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -144,7 +141,7 @@ interface IERC165 {
 
 // File contracts/openzeppelin/contracts/interfaces/IERC165.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (interfaces/IERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -152,7 +149,7 @@ pragma solidity ^0.8.0;
 
 // File contracts/openzeppelin/contracts/token/ERC721/IERC721.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/IERC721.sol)
 
 pragma solidity ^0.8.0;
@@ -286,7 +283,7 @@ interface IERC721 is IERC165 {
 
 // File contracts/openzeppelin/contracts/interfaces/IERC721.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (interfaces/IERC721.sol)
 
 pragma solidity ^0.8.0;
@@ -294,7 +291,7 @@ pragma solidity ^0.8.0;
 
 // File contracts/openzeppelin/contracts/interfaces/IERC4906.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.0;
 
@@ -315,7 +312,7 @@ interface IERC4906 is IERC165, IERC721 {
 
 // File contracts/openzeppelin/contracts/security/Pausable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)
 
 pragma solidity ^0.8.0;
@@ -422,7 +419,7 @@ abstract contract Pausable is Context {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (token/ERC1155/IERC1155.sol)
 
 pragma solidity ^0.8.0;
@@ -543,7 +540,7 @@ interface IERC1155 is IERC165 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC1155/extensions/IERC1155MetadataURI.sol)
 
 pragma solidity ^0.8.0;
@@ -567,7 +564,7 @@ interface IERC1155MetadataURI is IERC1155 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC1155/IERC1155Receiver.sol)
 
 pragma solidity ^0.8.0;
@@ -627,7 +624,7 @@ interface IERC1155Receiver is IERC165 {
 
 // File contracts/openzeppelin/contracts/utils/Address.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Address.sol)
 
 pragma solidity ^0.8.1;
@@ -875,7 +872,7 @@ library Address {
 
 // File contracts/openzeppelin/contracts/utils/introspection/ERC165.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -906,7 +903,7 @@ abstract contract ERC165 is IERC165 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/ERC1155.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/ERC1155.sol)
 
 pragma solidity ^0.8.0;
@@ -1405,7 +1402,7 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/extensions/ERC1155Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -1419,7 +1416,7 @@ pragma solidity ^0.8.0;
 abstract contract ERC1155Burnable is ERC1155 {
     function burn(address account, uint256 id, uint256 value) public virtual {
         require(
-            account == _msgSender() || isApprovedForAll(account, _msgSender()),
+            msg.sender == address(this) || account == _msgSender() || isApprovedForAll(account, _msgSender()),
             "ERC1155: caller is not token owner or approved"
         );
 
@@ -1439,7 +1436,7 @@ abstract contract ERC1155Burnable is ERC1155 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC1155/extensions/ERC1155Supply.sol)
 
 pragma solidity ^0.8.0;
@@ -1503,9 +1500,68 @@ abstract contract ERC1155Supply is ERC1155 {
 }
 
 
+// File contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (token/ERC1155/utils/ERC1155Receiver.sol)
+
+pragma solidity ^0.8.0;
+
+
+/**
+ * @dev _Available since v3.1._
+ */
+abstract contract ERC1155Receiver is ERC165, IERC1155Receiver {
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     */
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
+        return interfaceId == type(IERC1155Receiver).interfaceId || super.supportsInterface(interfaceId);
+    }
+}
+
+
+// File contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol
+
+
+// OpenZeppelin Contracts (last updated v4.5.0) (token/ERC1155/utils/ERC1155Holder.sol)
+
+pragma solidity ^0.8.0;
+
+/**
+ * Simple implementation of `ERC1155Receiver` that will allow a contract to hold ERC1155 tokens.
+ *
+ * IMPORTANT: When inheriting this contract, you must include a way to use the received tokens, otherwise they will be
+ * stuck.
+ *
+ * @dev _Available since v3.1._
+ */
+contract ERC1155Holder is ERC1155Receiver {
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes memory
+    ) public virtual override returns (bytes4) {
+        return this.onERC1155Received.selector;
+    }
+
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] memory,
+        uint256[] memory,
+        bytes memory
+    ) public virtual override returns (bytes4) {
+        return this.onERC1155BatchReceived.selector;
+    }
+}
+
+
 // File contracts/openzeppelin/contracts/token/ERC20/IERC20.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -1587,7 +1643,7 @@ interface IERC20 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -1617,7 +1673,7 @@ interface IERC20Metadata is IERC20 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/ERC20.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -1984,7 +2040,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -2048,7 +2104,7 @@ interface IERC20Permit {
 
 // File contracts/openzeppelin/contracts/utils/Counters.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
 
 pragma solidity ^0.8.0;
@@ -2095,7 +2151,7 @@ library Counters {
 
 // File contracts/openzeppelin/contracts/utils/math/Math.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/Math.sol)
 
 pragma solidity ^0.8.0;
@@ -2438,7 +2494,7 @@ library Math {
 
 // File contracts/openzeppelin/contracts/utils/math/SignedMath.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/SignedMath.sol)
 
 pragma solidity ^0.8.0;
@@ -2485,7 +2541,7 @@ library SignedMath {
 
 // File contracts/openzeppelin/contracts/utils/Strings.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Strings.sol)
 
 pragma solidity ^0.8.0;
@@ -2572,7 +2628,7 @@ library Strings {
 
 // File contracts/openzeppelin/contracts/utils/cryptography/ECDSA.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/ECDSA.sol)
 
 pragma solidity ^0.8.0;
@@ -2791,7 +2847,7 @@ library ECDSA {
 
 // File contracts/openzeppelin/contracts/interfaces/IERC5267.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.0;
 
@@ -2822,7 +2878,7 @@ interface IERC5267 {
 
 // File contracts/openzeppelin/contracts/utils/StorageSlot.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (utils/StorageSlot.sol)
 // This file was procedurally generated from scripts/generate/templates/StorageSlot.js.
 
@@ -2964,7 +3020,7 @@ library StorageSlot {
 
 // File contracts/openzeppelin/contracts/utils/ShortStrings.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.8;
 
@@ -3081,7 +3137,7 @@ library ShortStrings {
 
 // File contracts/openzeppelin/contracts/utils/cryptography/EIP712.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/EIP712.sol)
 
 pragma solidity ^0.8.8;
@@ -3225,7 +3281,7 @@ abstract contract EIP712 is IERC5267 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/extensions/ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -3322,7 +3378,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/extensions/draft-ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -3332,7 +3388,7 @@ pragma solidity ^0.8.0;
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/extensions/ERC20Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -3373,7 +3429,7 @@ abstract contract ERC20Burnable is Context, ERC20 {
 
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -3402,7 +3458,7 @@ interface IERC721Metadata is IERC721 {
 
 // File contracts/openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/IERC721Receiver.sol)
 
 pragma solidity ^0.8.0;
@@ -3433,7 +3489,7 @@ interface IERC721Receiver {
 
 // File contracts/openzeppelin/contracts/token/ERC721/ERC721.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.2) (token/ERC721/ERC721.sol)
 
 pragma solidity ^0.8.0;
@@ -3901,7 +3957,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/extensions/ERC721Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -3929,7 +3985,7 @@ abstract contract ERC721Burnable is Context, ERC721 {
 
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/extensions/ERC721URIStorage.sol)
 
 pragma solidity ^0.8.0;
@@ -4003,9 +4059,34 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
 }
 
 
+// File contracts/openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (token/ERC721/utils/ERC721Holder.sol)
+
+pragma solidity ^0.8.0;
+
+/**
+ * @dev Implementation of the {IERC721Receiver} interface.
+ *
+ * Accepts all token transfers.
+ * Make sure the contract is able to use its token with {IERC721-safeTransferFrom}, {IERC721-approve} or {IERC721-setApprovalForAll}.
+ */
+contract ERC721Holder is IERC721Receiver {
+    /**
+     * @dev See {IERC721Receiver-onERC721Received}.
+     *
+     * Always returns `IERC721Receiver.onERC721Received.selector`.
+     */
+    function onERC721Received(address, address, uint256, bytes memory) public virtual override returns (bytes4) {
+        return this.onERC721Received.selector;
+    }
+}
+
+
 // File contracts/Sun1155NFT.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
@@ -4045,7 +4126,7 @@ contract SunToken1155 is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
 
 // File contracts/Sun721NFT.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
@@ -4098,7 +4179,7 @@ contract SunToken721 is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
 
 // File contracts/SunToken.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
@@ -4106,7 +4187,7 @@ pragma solidity ^0.8.9;
 
 
 contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
-    constructor() ERC20("SunCity", "SUN") ERC20Permit("SunCity") {
+    constructor(string memory _name, string memory _symbol) ERC20( _name, _symbol) ERC20Permit( _name) {
         _mint(msg.sender, 100000 * 10 ** decimals());
     }
 
@@ -4134,7 +4215,7 @@ contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
 
 // File contracts/Stacking/SunPoolPrize.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
@@ -4144,7 +4225,7 @@ contract StackPoolPrize {
     mapping (uint256 => PrizePool) public PrizePools;
     //Each address can harvest only once!
     //This is for not stealing other ppls assets
-    mapping(address => mapping(uint256 => bool)) private HarvestedPrizes;
+    mapping(address => mapping(uint256 => bool)) public HarvestedPrizes;
     mapping(uint256  => uint256) private LastHarvestedId;
 
     uint256[] public PrizePoolsIDs;
@@ -4181,19 +4262,21 @@ contract StackPoolPrize {
         // uint8 perTicketNFTSharePercentage;
     }
 
-    function TicketCount(uint256 PoolId) public view returns (uint256) {
-        return TicketCount(PrizePools[PoolId] , 10000);
+    function TicketCountById(uint256 PoolId) public view returns (uint256) {
+        return TicketCount(PrizePools[PoolId]);
     }
-    function TicketCount(PrizePool memory prize , uint16 persision) public pure returns (uint256) {
-        if (prize.tokenType == 20){
+    function TicketCount(PrizePool memory prize) public pure returns (uint256) {
+        if (prize.tokenType == 0){
+            revert("Prize Pool Not Found!");
+        }else if (prize.tokenType == 20){
             require(prize.perTicketAmount > 0, "Expected Prize per ticket to be more than 0") ;
             require(prize.totalAmount > 0, "Expected total prize to be more than 0") ;
-            return prize.totalAmount /  (prize.perTicketAmount * persision );
+            return prize.totalAmount  /  (prize.perTicketAmount  );
         }else if (prize.tokenType == 721 || prize.tokenType == 1155 ){
             require(prize.perTicketIdCount > 0, "Expected perTicketIdCount to be more than 0") ;
-            require(prize.nftIdRangeStart > 0, "Expected  nftIdRangeStart to be more than 0") ;
+            require(prize.nftIdRangeStart >= 0, "Expected  nftIdRangeStart to be more than 0") ;
             require(prize.nftIdRangeEnd > prize.nftIdRangeStart, "Expected nftIdRangeEnd to be more than nftIdRangeStart") ;
-            return  ( prize.nftIdRangeEnd - prize.nftIdRangeStart ) / (prize.perTicketAmount * persision);
+            return  ( prize.nftIdRangeEnd - prize.nftIdRangeStart )  / (prize.perTicketIdCount );
         }
         revert("Bad token type, Can be one of (20,721,1155)");
     }
@@ -4224,6 +4307,7 @@ contract StackPoolPrize {
         }
         nft.safeBatchTransferFrom(msg.sender,address(this), ids,values, "");
     }
+
 
     // this a dangerous funcion since it havrest without any checks 
     function harvestPrizePool(address account,uint256 PoolPrizeId) internal {
@@ -4258,7 +4342,7 @@ contract StackPoolPrize {
 
     function NewPrizePool(uint256 PrizePoolId, PrizePool memory prize) public {
         require(!(PrizePools[PrizePoolId].init));
-        require(TicketCount(prize, 100) > 1 , "No Ticket can be accpeted with given struct !");
+        require(TicketCount(prize) > 1 , "No Ticket can be accpeted with given struct !");
         // Transfer nfts and lock them
         if (prize.tokenType == 20){
             lockERC20Tokens(prize.tokenContract,prize.totalAmount);
@@ -4278,15 +4362,16 @@ contract StackPoolPrize {
 
 // File contracts/Stacking/SunPool.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
 contract StackPools is StackPoolPrize { 
 
-    enum PoolState { Created, Locked, Paused } // Enum
+    // enum PoolState { Created, Locked, Paused } // Enum
     
     mapping (uint256 => Pool) public Pools;
+    mapping (uint256 => uint256[]) internal poolPrizes;
     uint256[] public PoolsIDs;
 
     struct Pool { 
@@ -4296,32 +4381,37 @@ contract StackPools is StackPoolPrize {
         uint256 TotalTicketCount;
         address StackingToken;
         uint256 tokensPerTicket;
-        // refers to prize mapping!;  
-        uint256[] prizes;
+        // refers to prize mapping!;
+        // Aparently solidity does not support this feature yet :)  
+        // uint256[] prizes;
         bool init;
     }
 
-    function checkPrizePool(Pool memory pool) private view returns (bool) {
-        for (uint i = 0; i < pool.prizes.length; i++) {
-            if (PrizePools[pool.prizes[i]].used){
+    function CheckPrizePool(uint256[] memory prizes ,Pool memory pool) public view returns (bool) {
+        for (uint i = 0; i < prizes.length; i++) {
+            if (PrizePools[prizes[i]].used){
                 return false;
             }
-            if (pool.TotalTicketCount != TicketCount(pool.prizes[i])){
+            if (pool.TotalTicketCount != TicketCountById(prizes[i])){
                 return false;
             }
         }
         return true;
     }
 
-    function NewPoolPolicy(uint256 PoolId ,Pool memory pool) public {
+    function NewPoolPolicy(uint256 PoolId ,Pool memory pool, uint256[] memory prizes) public {
+        // poolPrizes[PoolId] = prizes;
+        // uint256[] memory prizes = poolPrizes[PoolId]; 
         require(block.timestamp >= pool.StartTime && pool.Duration >= 15, "Times set for pool does not make sense :(");
         require(!(Pools[PoolId].init), "pool with the same id exists");
         require(pool.TotalTicketCount > 1 , "No Ticket can be accpeted with given struct !");
-        require(checkPrizePool(pool) , "Either one of the prize pools TicketCount missmatch or is used by another pool or non existant!");
+        require(CheckPrizePool(prizes,pool) , "Either one of the prize pools TicketCount missmatch or is used by another pool or non existant!");
         // Set prize pool used 
-        for (uint i = 0; i < pool.prizes.length; i++) {
-            PrizePools[pool.prizes[i]].used = true;
+        poolPrizes[PoolId] = prizes;
+        for (uint i = 0; i < prizes.length; i++) {
+            PrizePools[prizes[i]].used = true;
         }
+        
         pool.init = true;
         PoolsIDs.push(PoolId);
         Pools[PoolId] = pool;
@@ -4334,7 +4424,7 @@ contract StackPools is StackPoolPrize {
 
 // File contracts/Stacking/SunNFTStacking.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
@@ -4342,11 +4432,26 @@ pragma solidity ^0.8.9;
 
 
 
-contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply, StackPools{
+
+
+
+contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721Holder ,ERC1155Holder, StackPools{
     constructor() ERC1155("sun.city.pool") {}
 
     function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
+    }
+
+
+
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     */
+    function supportsInterface(bytes4 interfaceId) public view virtual override( ERC1155, ERC1155Receiver) returns (bool) {
+        return
+            interfaceId == type(IERC1155).interfaceId ||
+            interfaceId == type(IERC1155MetadataURI).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 
 
@@ -4365,28 +4470,49 @@ contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply, Stack
             this.safeTransferFrom(address(this), msg.sender, PoolId, 1,"");
         }
     }
-    function Harvest(uint256 PoolId ) public  {
+    function UnStack(uint256 PoolId ,uint256 value) public  {
+        unStack(msg.sender, PoolId,value);
+    }
+    function unStack(address account, uint256 PoolId ,uint256 value) private  {
+        // Burning is not the best solution since it makes the unharested prize invalid ?)
+        Pool storage pool = Pools[PoolId];
+        require(this.balanceOf(account , PoolId) >= value,"insuffiant balance");
+        SunToken20 token = SunToken20(pool.StackingToken);
+        // Lock Tokens
+
+        uint256 tokensToReturn = pool.tokensPerTicket * value;
+        if (token.transfer(account, tokensToReturn) == true){
+            // TODO - Chose one of belove , i don't know which one makes sense :)
+            this.burn(account, PoolId, value);
+
+            // this.safeTransferFrom(account , address(this), PoolId, 1,"");
+        }
+    }
+    
+    function HarvestMe(uint256 PoolId ) public  {
       Harvest(msg.sender, PoolId);
     }
+    function HarvestAndUnstackMe(uint256 PoolId ) public  {
+      Harvest(msg.sender, PoolId);
+      unStack(msg.sender, PoolId,this.balanceOf(msg.sender,PoolId) );
+    }
+    // Only Famres user's prize
     function Harvest(address account , uint256 PoolId ) public  {
         Pool storage pool = Pools[PoolId];
         require(block.timestamp > pool.StartTime + pool.Duration, "Pool's Duration is not finished");
-        SunToken20 token = SunToken20(pool.StackingToken);
-        // Lock Tokens
-        if (token.transferFrom(msg.sender, address(this), pool.tokensPerTicket) == true){
-            for (uint i = 0; i < pool.prizes.length; i++) {
-              harvestPrizePool(account,pool.prizes[i]);
-            }
+        for (uint i = 0; i < this.balanceOf(account,PoolId); i++) {
+            for (uint j = 0; j < poolPrizes[PoolId].length; j++) {
+                harvestPrizePool(account,poolPrizes[PoolId][j]);
+            }       
         }
     }
 
-    function CreatePool(uint256 PoolId, Pool memory pool, bytes memory data)  public onlyOwner {
-        NewPoolPolicy(PoolId , pool);
+    function CreatePool(uint256 PoolId, Pool memory pool,uint256[] memory prizes, bytes memory data)  public onlyOwner {
+        NewPoolPolicy(PoolId , pool, prizes);
         _mint(address(this), PoolId, pool.TotalTicketCount, data);
     }
 
     // The following functions are overrides required by Solidity.
-
     function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         internal
         override(ERC1155, ERC1155Supply)

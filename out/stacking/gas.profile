@@ -2,65 +2,74 @@
 ======= contracts/Stacking/SunNFTStacking.sol:StackingPool =======
 Gas estimation:
 construction:
-   infinite + 3203000 = infinite
+   infinite + 3438200 = infinite
 external:
-   CreatePool(uint256,(string,uint256,uint256,uint256,address,uint256,uint256[],bool),bytes):	infinite
+   CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
+   CreatePool(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[],bytes):	infinite
    Harvest(address,uint256):	infinite
-   Harvest(uint256):	infinite
-   NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,uint256[],bool)):	infinite
+   HarvestAndUnstackMe(uint256):	infinite
+   HarvestMe(uint256):	infinite
+   HarvestedPrizes(address,uint256):	2735
+   NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
    PoolsIDs(uint256):	4654
-   PrizePools(uint256):	13340
-   PrizePoolsIDs(uint256):	4631
+   PrizePools(uint256):	13385
+   PrizePoolsIDs(uint256):	4609
    Stack(uint256):	infinite
-   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256),uint16):	infinite
-   TicketCount(uint256):	infinite
+   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
+   TicketCountById(uint256):	infinite
+   UnStack(uint256,uint256):	infinite
    balanceOf(address,uint256):	2723
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2496
+   exists(uint256):	2518
    isApprovedForAll(address,address):	infinite
+   onERC1155BatchReceived(address,address,uint256[],uint256[],bytes):	infinite
+   onERC1155Received(address,address,uint256,uint256,bytes):	infinite
+   onERC721Received(address,address,uint256,bytes):	infinite
    owner():	2369
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26779
+   setApprovalForAll(address,bool):	26824
    setURI(string):	infinite
-   supportsInterface(bytes4):	583
-   totalSupply(uint256):	2472
+   supportsInterface(bytes4):	infinite
+   totalSupply(uint256):	2516
    transferOwnership(address):	28412
    uri(uint256):	infinite
 internal:
    _beforeTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
+   unStack(address,uint256,uint256):	infinite
 
 ======= contracts/Stacking/SunPool.sol:StackPools =======
 Gas estimation:
 construction:
-   1315 + 1264400 = 1265715
+   1356 + 1303000 = 1304356
 external:
-   NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,uint256[],bool)):	infinite
+   CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
+   HarvestedPrizes(address,uint256):	2646
+   NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
    PoolsIDs(uint256):	4587
-   PrizePools(uint256):	13307
-   PrizePoolsIDs(uint256):	4630
-   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256),uint16):	infinite
-   TicketCount(uint256):	infinite
-internal:
-   checkPrizePool(struct StackPools.Pool memory):	infinite
+   PrizePools(uint256):	13330
+   PrizePoolsIDs(uint256):	4608
+   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
+   TicketCountById(uint256):	infinite
 
 ======= contracts/Stacking/SunPoolPrize.sol:StackPoolPrize =======
 Gas estimation:
 construction:
-   805 + 771000 = 771805
+   812 + 774600 = 775412
 external:
+   HarvestedPrizes(address,uint256):	2646
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
-   PrizePools(uint256):	13307
+   PrizePools(uint256):	13352
    PrizePoolsIDs(uint256):	4608
-   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256),uint16):	infinite
-   TicketCount(uint256):	infinite
+   TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256)):	infinite
+   TicketCountById(uint256):	infinite
 internal:
    harvestPrizePool(address,uint256):	infinite
    lockERC1155Tokens(address,uint256,uint256):	infinite
@@ -70,7 +79,7 @@ internal:
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1888400 = infinite
+   infinite + 1890400 = infinite
 external:
    balanceOf(address,uint256):	2700
    balanceOfBatch(address[],uint256[]):	infinite
@@ -208,6 +217,18 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol:IERC1155MetadataURI =======
 Gas estimation:
 
+======= contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol:ERC1155Holder =======
+Gas estimation:
+construction:
+   263 + 220600 = 220863
+external:
+   onERC1155BatchReceived(address,address,uint256[],uint256[],bytes):	infinite
+   onERC1155Received(address,address,uint256,uint256,bytes):	infinite
+   supportsInterface(bytes4):	392
+
+======= contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol:ERC1155Receiver =======
+Gas estimation:
+
 ======= contracts/openzeppelin/contracts/token/ERC20/ERC20.sol:ERC20 =======
 Gas estimation:
 construction:
@@ -299,6 +320,13 @@ Gas estimation:
 
 ======= contracts/openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol:IERC721Metadata =======
 Gas estimation:
+
+======= contracts/openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol:ERC721Holder =======
+Gas estimation:
+construction:
+   153 + 103600 = 103753
+external:
+   onERC721Received(address,address,uint256,bytes):	infinite
 
 ======= contracts/openzeppelin/contracts/utils/Address.sol:Address =======
 Gas estimation:

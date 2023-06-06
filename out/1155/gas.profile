@@ -2,7 +2,7 @@
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1888400 = infinite
+   infinite + 1890400 = infinite
 external:
    balanceOf(address,uint256):	2700
    balanceOfBatch(address[],uint256[]):	infinite

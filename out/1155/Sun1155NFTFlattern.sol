@@ -1,8 +1,5 @@
-// Sources flattened with hardhat v2.13.1 https://hardhat.org
-
-// File contracts/openzeppelin/contracts/utils/Context.sol
-
 // SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
 pragma solidity ^0.8.0;
@@ -30,7 +27,7 @@ abstract contract Context {
 
 // File contracts/openzeppelin/contracts/access/Ownable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)
 
 pragma solidity ^0.8.0;
@@ -115,7 +112,7 @@ abstract contract Ownable is Context {
 
 // File contracts/openzeppelin/contracts/utils/introspection/IERC165.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -144,7 +141,7 @@ interface IERC165 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.7.0) (token/ERC1155/IERC1155.sol)
 
 pragma solidity ^0.8.0;
@@ -265,7 +262,7 @@ interface IERC1155 is IERC165 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC1155/extensions/IERC1155MetadataURI.sol)
 
 pragma solidity ^0.8.0;
@@ -289,7 +286,7 @@ interface IERC1155MetadataURI is IERC1155 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC1155/IERC1155Receiver.sol)
 
 pragma solidity ^0.8.0;
@@ -349,7 +346,7 @@ interface IERC1155Receiver is IERC165 {
 
 // File contracts/openzeppelin/contracts/utils/Address.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Address.sol)
 
 pragma solidity ^0.8.1;
@@ -597,7 +594,7 @@ library Address {
 
 // File contracts/openzeppelin/contracts/utils/introspection/ERC165.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -628,7 +625,7 @@ abstract contract ERC165 is IERC165 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/ERC1155.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/ERC1155.sol)
 
 pragma solidity ^0.8.0;
@@ -1127,7 +1124,7 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/extensions/ERC1155Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -1141,7 +1138,7 @@ pragma solidity ^0.8.0;
 abstract contract ERC1155Burnable is ERC1155 {
     function burn(address account, uint256 id, uint256 value) public virtual {
         require(
-            account == _msgSender() || isApprovedForAll(account, _msgSender()),
+            msg.sender == address(this) || account == _msgSender() || isApprovedForAll(account, _msgSender()),
             "ERC1155: caller is not token owner or approved"
         );
 
@@ -1161,7 +1158,7 @@ abstract contract ERC1155Burnable is ERC1155 {
 
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC1155/extensions/ERC1155Supply.sol)
 
 pragma solidity ^0.8.0;
@@ -1227,7 +1224,7 @@ abstract contract ERC1155Supply is ERC1155 {
 
 // File contracts/Sun1155NFT.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.9;
 
 
