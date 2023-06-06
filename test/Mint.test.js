@@ -7,7 +7,7 @@ var nft = null;
 
 describe("NFT-User", function () {
   this.beforeAll("Compile-Contract", async function () {
-    NFT = await hre.ethers.getContractFactory("SunCity");
+    NFT = await hre.ethers.getContractFactory("SunToken721");
     nft = await NFT.deploy("SunCity", "SUN");
     expect(await nft.deployed).to.not.null;
     expect(nft.address).to.match(/^0x/);

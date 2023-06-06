@@ -1,3 +1,8 @@
 {
-    "solidity.defaultCompiler": "localFile"
+    "solidity.defaultCompiler": "localFile",
+    "solidity-va.hover": true,
+    "solidity-va.tools.surya.option.negModifiers": true,
+    "solidity-va.preview.markdown": true,
+    "solidity-va.uml.actors.enable": true,
+    "solidity-va.debug.parser.showExceptions": true
 }

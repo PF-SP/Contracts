@@ -15,7 +15,7 @@
     "deploy-pol-testnet": "npx hardhat run --network polygonTestNet  scripts/deploy-poly.ts",
     "local-node": "npx hardhat node ",
     "fork-node": "npx hardhat node --fork https://eth-mainnet.g.alchemy.com/v2/SZ6X0oo_9axubB96Eo-98PKpjJBjxENW",
-    "build": "./cmd/compile-721.sh & ./cmd/compile-1155.sh & ./cmd/compile-20.sh"
+    "build": "./cmd/compile-stacking.sh &&  ./cmd/compile-721.sh & ./cmd/compile-1155.sh & ./cmd/compile-20.sh"
   },
   "loader": "ts-node/esm",
   "devDependencies": {

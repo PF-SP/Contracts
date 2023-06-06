@@ -1,5 +1,5 @@
 
-======= contracts/SunToken.sol:SunCity =======
+======= contracts/SunToken.sol:SunToken20 =======
 Gas estimation:
 construction:
    infinite + 1277800 = infinite

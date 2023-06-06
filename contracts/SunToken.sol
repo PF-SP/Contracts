@@ -7,8 +7,8 @@ import "./openzeppelin/contracts/security/Pausable.sol";
 import "./openzeppelin/contracts/access/Ownable.sol";
 import "./openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 
-contract SunCity is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
-    constructor() ERC20("SunCity", "SUN") ERC20Permit("SunCity") {
+contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
+    constructor(string memory _name, string memory _symbol) ERC20( _name, _symbol) ERC20Permit( _name) {
         _mint(msg.sender, 100000 * 10 ** decimals());
     }
 

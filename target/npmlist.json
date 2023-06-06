@@ -1,0 +1,1 @@
+{"version":"1.0.0","name":"contracts","dependencies":{"ethereum-waffle":{"version":"4.0.10"},"mocha":{"version":"10.2.0"},"solc":{"version":"0.8.19"},"typescript":{"version":"5.0.4"}}}
