@@ -2,25 +2,25 @@
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1890400 = infinite
+   infinite + 1856200 = infinite
 external:
-   balanceOf(address,uint256):	2700
+   balanceOf(address,uint256):	2696
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2517
+   exists(uint256):	2514
    isApprovedForAll(address,address):	infinite
    mint(address,uint256,uint256,bytes):	infinite
    mintBatch(address,uint256[],uint256[],bytes):	infinite
-   owner():	2368
+   owner():	2367
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26772
+   setApprovalForAll(address,bool):	26769
    setURI(string):	infinite
-   supportsInterface(bytes4):	560
-   totalSupply(uint256):	2472
-   transferOwnership(address):	28387
+   supportsInterface(bytes4):	557
+   totalSupply(uint256):	2469
+   transferOwnership(address):	28384
    uri(uint256):	infinite
 internal:
    _beforeTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
@@ -31,15 +31,15 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC1155/ERC1155.sol:ERC1155 =======
 Gas estimation:
 construction:
-   infinite + 1083600 = infinite
+   infinite + 1065600 = infinite
 external:
-   balanceOf(address,uint256):	2677
+   balanceOf(address,uint256):	2673
    balanceOfBatch(address[],uint256[]):	infinite
    isApprovedForAll(address,address):	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26705
-   supportsInterface(bytes4):	537
+   setApprovalForAll(address,bool):	26702
+   supportsInterface(bytes4):	534
    uri(uint256):	infinite
 internal:
    _afterTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
@@ -74,7 +74,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/Address.sol:Address =======
 Gas estimation:
 construction:
-   103 + 17200 = 17303
+   96 + 17000 = 17096
 internal:
    _revert(bytes memory,string memory):	infinite
    functionCall(address,bytes memory):	infinite

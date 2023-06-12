@@ -1,5 +1,8 @@
-// SPDX-License-Identifier: MIT
+// Sources flattened with hardhat v2.13.1 https://hardhat.org
 
+// File contracts/openzeppelin/contracts/utils/Context.sol
+
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
 pragma solidity ^0.8.0;
@@ -27,7 +30,7 @@ abstract contract Context {
 
 // File contracts/openzeppelin/contracts/access/Ownable.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)
 
 pragma solidity ^0.8.0;
@@ -112,7 +115,7 @@ abstract contract Ownable is Context {
 
 // File contracts/openzeppelin/contracts/security/Pausable.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)
 
 pragma solidity ^0.8.0;
@@ -219,7 +222,7 @@ abstract contract Pausable is Context {
 
 // File contracts/openzeppelin/contracts/token/ERC20/IERC20.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -301,7 +304,7 @@ interface IERC20 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -331,7 +334,7 @@ interface IERC20Metadata is IERC20 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/ERC20.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -698,7 +701,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -762,7 +765,7 @@ interface IERC20Permit {
 
 // File contracts/openzeppelin/contracts/utils/Counters.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
 
 pragma solidity ^0.8.0;
@@ -809,7 +812,7 @@ library Counters {
 
 // File contracts/openzeppelin/contracts/utils/math/Math.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/Math.sol)
 
 pragma solidity ^0.8.0;
@@ -1152,7 +1155,7 @@ library Math {
 
 // File contracts/openzeppelin/contracts/utils/math/SignedMath.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/SignedMath.sol)
 
 pragma solidity ^0.8.0;
@@ -1199,7 +1202,7 @@ library SignedMath {
 
 // File contracts/openzeppelin/contracts/utils/Strings.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Strings.sol)
 
 pragma solidity ^0.8.0;
@@ -1286,7 +1289,7 @@ library Strings {
 
 // File contracts/openzeppelin/contracts/utils/cryptography/ECDSA.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/ECDSA.sol)
 
 pragma solidity ^0.8.0;
@@ -1505,7 +1508,7 @@ library ECDSA {
 
 // File contracts/openzeppelin/contracts/interfaces/IERC5267.sol
 
-
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1536,7 +1539,7 @@ interface IERC5267 {
 
 // File contracts/openzeppelin/contracts/utils/StorageSlot.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (utils/StorageSlot.sol)
 // This file was procedurally generated from scripts/generate/templates/StorageSlot.js.
 
@@ -1678,7 +1681,7 @@ library StorageSlot {
 
 // File contracts/openzeppelin/contracts/utils/ShortStrings.sol
 
-
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.8;
 
@@ -1795,7 +1798,7 @@ library ShortStrings {
 
 // File contracts/openzeppelin/contracts/utils/cryptography/EIP712.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/EIP712.sol)
 
 pragma solidity ^0.8.8;
@@ -1939,7 +1942,7 @@ abstract contract EIP712 is IERC5267 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/extensions/ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -2036,7 +2039,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/extensions/draft-ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -2046,7 +2049,7 @@ pragma solidity ^0.8.0;
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol
 
-
+// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/extensions/ERC20Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -2087,7 +2090,7 @@ abstract contract ERC20Burnable is Context, ERC20 {
 
 // File contracts/SunToken.sol
 
-
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 

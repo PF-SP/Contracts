@@ -2,27 +2,27 @@
 ======= contracts/Sun721NFT.sol:SunToken721 =======
 Gas estimation:
 construction:
-   infinite + 1468800 = infinite
+   infinite + 1445600 = infinite
 external:
    approve(address,uint256):	infinite
-   balanceOf(address):	2635
+   balanceOf(address):	2631
    burn(uint256):	infinite
-   getApproved(uint256):	4792
+   getApproved(uint256):	4787
    isApprovedForAll(address,address):	infinite
    name():	infinite
-   owner():	2376
-   ownerOf(uint256):	2621
+   owner():	2375
+   ownerOf(uint256):	2618
    renounceOwnership():	infinite
    safeMint(address,uint256,string):	infinite
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26772
+   setApprovalForAll(address,bool):	26769
    supportsInterface(bytes4):	infinite
    symbol():	infinite
    tokenURI(uint256):	infinite
-   totalSupply():	2341
+   totalSupply():	2340
    transferFrom(address,address,uint256):	infinite
-   transferOwnership(address):	28424
+   transferOwnership(address):	28421
 internal:
    _baseURI():	infinite
    _burn(uint256):	infinite
@@ -36,18 +36,18 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC721/ERC721.sol:ERC721 =======
 Gas estimation:
 construction:
-   infinite + 953800 = infinite
+   infinite + 939000 = infinite
 external:
    approve(address,uint256):	infinite
-   balanceOf(address):	2634
-   getApproved(uint256):	4792
+   balanceOf(address):	2630
+   getApproved(uint256):	4787
    isApprovedForAll(address,address):	infinite
    name():	infinite
-   ownerOf(uint256):	2555
+   ownerOf(uint256):	2552
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26705
-   supportsInterface(bytes4):	516
+   setApprovalForAll(address,bool):	26702
+   supportsInterface(bytes4):	513
    symbol():	infinite
    tokenURI(uint256):	infinite
    transferFrom(address,address,uint256):	infinite
@@ -88,7 +88,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/Address.sol:Address =======
 Gas estimation:
 construction:
-   103 + 17200 = 17303
+   96 + 17000 = 17096
 internal:
    _revert(bytes memory,string memory):	infinite
    functionCall(address,bytes memory):	infinite
@@ -110,7 +110,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/Strings.sol:Strings =======
 Gas estimation:
 construction:
-   103 + 17200 = 17303
+   96 + 17000 = 17096
 internal:
    equal(string memory,string memory):	infinite
    toHexString(address):	infinite
@@ -128,7 +128,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/math/Math.sol:Math =======
 Gas estimation:
 construction:
-   103 + 17200 = 17303
+   96 + 17000 = 17096
 internal:
    average(uint256,uint256):	infinite
    ceilDiv(uint256,uint256):	infinite
@@ -148,7 +148,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/math/SignedMath.sol:SignedMath =======
 Gas estimation:
 construction:
-   103 + 17200 = 17303
+   96 + 17000 = 17096
 internal:
    abs(int256):	infinite
    average(int256,int256):	infinite
