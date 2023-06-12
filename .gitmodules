@@ -1,3 +1,3 @@
 [submodule "contracts/openzeppelin"]
-	path = contracts/openzeppelin
-	url = git@github.com:OpenZeppelin/openzeppelin-contracts.git
+path = contracts/openzeppelin
+url = git@github.com:PF-SP/openzeppelin-fork.git

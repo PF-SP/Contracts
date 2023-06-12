@@ -1,5 +1,5 @@
 
-# Deployed @ 1686067658059 on ftmTestNet
+# Deployed @ 1686067658059 on PolTestNet
 
 - SunToken: 0xD82769043F17F05debAea51E51eE07e0F26E7967
 - NFT:

@@ -8,87 +8,44 @@ nft721 = await NFT721.deploy("SunCity", "SUN");
 NFT1155 = await hre.ethers.getContractFactory("SunToken1155");
 nft1155 = await NFT1155.deploy();
 
+NFTIndex = 25
 
-const ownerNfts = []
-for (let index = 0; index < 10; index++) {
-    ownerNfts.push(
-        await nft721.safeMint(owner.address, index, "")
-    )
-}
+await nft1155.mint(owner.address, NFTIndex, 10000000000, "0x")
 
 Stacking = await hre.ethers.getContractFactory("StackingPool");
 stacking = await Stacking.deploy();
 
-await nft721.setApprovalForAll(stacking.address, true)
+await nft1155.setApprovalForAll(stacking.address, true)
 
-// -> BigNumber { value: "3" }  
-await stacking.TicketCount({
+prize = {
     init: false,
     used: false,
+    tokenType: "1155",
+    tokenContract: nft1155.address,
+    perTicketIdCount: "0",
+    nftIdRangeStart: "0",
+    nftIdRangeEnd: "0",
     totalAmount: 0,
     perTicketAmount: 0,
-    tokenType: 721,
-    tokenContract: nft721.address,
-    perTicketIdCount: 1,
-    nftIdRangeEnd: 4,
-    nftIdRangeStart: 1
-})
-
-await stacking.NewPrizePool(1, {
-    init: false,
-    used: false,
-    totalAmount: 0,
-    perTicketAmount: 0,
-    tokenType: 721,
-    tokenContract: nft721.address,
-    perTicketIdCount: 1,
-    nftIdRangeEnd: 10,
-    nftIdRangeStart: 0
-})
+    nft1155Id: NFTIndex,
+    perTicketNFTShareCount: 10,
+    totalNFTValue: 10000000000
+}
+// -> BigNumber { value: "1000000000" }
+await stacking.TicketCount(prize)
+await stacking.NewPrizePool(1, prize)
 
 //TODO - Add expect to these
 // -> BigNumber { value: "1" }
 await stacking.PrizePoolsIDs(0)
-// -> ... init: true
-await stacking.PrizePoolsIDs(1)
-// -> ... init: false
-await stacking.PrizePoolsIDs(1564)
-await stacking.PrizePoolsIDs(0)
-await stacking.PrizePoolsIDs(254)
 
-// -> BigNumber { value: "100" }  
+// -> BigNumber { value: "1000000000" } 
 await stacking.TicketCountById(1)
-// -> BigNumber { value: "0" }  
-await nft721.balanceOf(owner.address)
-// -> BigNumber { value: "100" }  
-await nft721.balanceOf(stacking.address)
 
-
-//////////////////////////////////////////
-
-
-// Token = await hre.ethers.getContractFactory("SunToken20");
-// token = await Token.deploy("SunCity", "SUN");
-
-
-// var pool = {
-//     Name: "test",
-//     StartTime: Math.ceil(Date.now() / 1000),
-//     Duration: 1000,
-//     TotalTicketCount: 10,
-//     StackingToken: token.address,
-//     tokensPerTicket: 300,
-//     init:false,
-// }
-
-// // await stacking.SetPoolPrize(10, prizes)
-// await stacking.NewPoolPolicy(10, pool , [1])
-// await stacking.Pools(10)
-
-// //Should fail since prize is used by another pool
-// await stacking.NewPoolPolicy(11, pool , [1])
-// //Should fail since prize non existant
-// await stacking.NewPoolPolicy(11, pool , [2,3])
+// ->  BigNumber { value: "100" } 
+await nft1155.balanceOf(owner.address, NFTIndex)
+// -> BigNumber { value: "10000000000" }
+await nft1155.balanceOf(stacking.address, NFTIndex)
 
 
 ////////////////////////////////////////
@@ -100,17 +57,19 @@ token = await Token.deploy("SunCity", "SUN");
 
 var pool = {
     Name: "test",
-    StartTime: Math.ceil(Date.now() / 1000) + 10,
-    Duration: 25,
-    TotalTicketCount: 10,
+    StartTime: Math.ceil(Date.now() / 1000) + 100,
+    Duration: 100,
+    TotalTicketCount: "1000000000",
     StackingToken: token.address,
-    tokensPerTicket: 300,
+    tokensPerTicket: 10000,
     init: false,
 }
 
 // await stacking.SetPoolPrize(10, prizes)
 await stacking.CreatePool(10, pool, [1], "0x")
 await stacking.Pools(10)
+
+
 var before = {
     stackNfts: await stacking.balanceOf(stacking.address, 10),
     stakeTokens: await token.balanceOf(stacking.address),
@@ -175,10 +134,4 @@ setTimeout(async () => {
     }
 
     console.log({ before, after })
-}, 35 * 1000);
-        // //Should fail since prize is used by another pool
-        // await stacking.NewPoolPolicy(11, pool , [1])
-        // //Should fail since prize non existant
-        // await stacking.NewPoolPolicy(11, pool , [2,3])
-
-
+}, (100 + 100) * 1000);

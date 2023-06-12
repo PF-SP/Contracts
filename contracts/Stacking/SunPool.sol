@@ -4,6 +4,7 @@ pragma solidity ^0.8.9;
 
 import "./SunPoolPrize.sol";
 import "../SunToken.sol";
+import "../openzeppelin/contracts/access/Ownable.sol";
 
 contract StackPools is StackPoolPrize { 
 
@@ -12,6 +13,7 @@ contract StackPools is StackPoolPrize {
     mapping (uint256 => Pool) public Pools;
     mapping (uint256 => uint256[]) internal poolPrizes;
     uint256[] public PoolsIDs;
+
 
     struct Pool { 
         string Name ;
@@ -25,6 +27,7 @@ contract StackPools is StackPoolPrize {
         // uint256[] prizes;
         bool init;
     }
+
 
     function CheckPrizePool(uint256[] memory prizes ,Pool memory pool) public view returns (bool) {
         for (uint i = 0; i < prizes.length; i++) {
@@ -41,7 +44,8 @@ contract StackPools is StackPoolPrize {
     function NewPoolPolicy(uint256 PoolId ,Pool memory pool, uint256[] memory prizes) public {
         // poolPrizes[PoolId] = prizes;
         // uint256[] memory prizes = poolPrizes[PoolId]; 
-        require(block.timestamp >= pool.StartTime && pool.Duration >= 15, "Times set for pool does not make sense :(");
+        // TODO - double check this ....
+        // require(block.timestamp >= pool.StartTime && pool.Duration >= 15, "Times set for pool does not make sense :(");
         require(!(Pools[PoolId].init), "pool with the same id exists");
         require(pool.TotalTicketCount > 1 , "No Ticket can be accpeted with given struct !");
         require(CheckPrizePool(prizes,pool) , "Either one of the prize pools TicketCount missmatch or is used by another pool or non existant!");
@@ -55,7 +59,6 @@ contract StackPools is StackPoolPrize {
         PoolsIDs.push(PoolId);
         Pools[PoolId] = pool;
     }
-
 
 
 }
