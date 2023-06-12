@@ -1,0 +1,159 @@
+Create Collection:
+Create NFT:
+
+
+List of NFT-IDs(Search(by-name))
+
+Campaign :
+
+
+Prize:
+ID - 12432312
+tokenType: (20,721,1155)
+tokenContract: SUN-NFT (address) (aka. Collection Address)
+if 20:
+    totalAmount
+    perTicketAmount
+if 721:
+    perTicketIdCount : 1
+    nftIdRangeStart: 10000 -> 0
+    nftIdRangeEnd: 20000 -> 0
+    # Redundant # AutoDetect: true (set end as totalSupply of collection)
+    # As A Feature # NFT721ArrayOfIDs: 
+    # As A Feature #  - createNFT721ArrayOfID([]Number)
+if 1155:
+    nftId: 1298376
+    perTicketNFTShareCount: 5 / 0
+    perTicketNFTSharePercentage: 0 / 100
+
+
+Pool :
+ID - 1154623
+{
+    name : jashnavare ye paeeze
+    StartTime: 1 mehr 
+    Duration: 4 weeks
+    TotalTicketCount: 100
+    StakeingToken : SUN (address)
+    tokensPerTicket: 100
+}
+12432312
+
+
+
+### Contract Staking (NFT-1155)
+nft = PoolId
+FirstTime -> createPool()
+totalTicket -> mint -> staking
+stake ->
+  -  transfer Sun  to contract
+  -  transfer ticket (nft share) from contract to user
+
+
+
+
+POOL-ID : 1154623
+TYPE-1155
+pool-balance 100
+
+
+stake(1154623) -> 1
+
+
+
+
+
+
+
+
+one ticket:
+- 1 nft (Gold) 
+- 1/5 nft (Bronze)
+- 1/5 nft (Bronze-F)
+
+تخم مرغ طلایی:
+- type is 1155
+- id : 19827341
+- totalSupply: 10000
+- perTicket: 25
+
+
+
+Campaign:
+- Stake to Get Reward
+  - Prizes:
+    - 1000 x بذر جو خوب برای ابجو
+    - 100 x کود کپک زده ی انسانی
+    - 25 x مرغ تخم طلایی
+    - 4 x داس چوبی
+- Ticket :
+  - 
+
+[
+    [
+        1 : ....,
+        2 : ....,
+        3 : ....
+    ]
+]
+
+nft -> 721
+1,2,3,4,5,6 ....
+
+GOLD => 
+- Add1 , 1000
+Right Now  - 1 , ... , 100
+Can become - [1,213,3456,123,567,8769] -> len(x) => 1000
+
+t1 = [GOLD-Add1-1,GOLD-Add1-213]
+t2 = [GOLD-Add1-3456,GOLD-Add1-123]
+t2 = [GOLD-Add1-8769,GOLD-Add1-567]
+
+prizes = 
+[
+    {"add1" , 1 ,1,100}
+]
+
+
+
+Bronze-F => 
+- Add2 , ID-1000
+- ID-1 :
+  -  totalSupply 40 
+     - Prize per ticket
+       - 40
+- ID-2 :
+  -  totalSupply 20 
+     - Prize per ticket
+       - 20
+
+
+
+
+
+
+
+
+
+
+
+---------------NFT Holder------------------
+
+1. Transfered Sun into staking pool 
+2. Stake
+3. NFT-> minted ()
+
+------------------------------------------
+
+if are we friends (MarketPlace) ?
+yes:
+  transfer to your acc
+no:
+  i ask for suns 
+  you transfer sun to me
+  i transfer nft(ticket) to your acc
+
+Is a Contract -> MarketPlace ...!
+------------------------------------------
+
+NFT (Board Ape) 10ETH
