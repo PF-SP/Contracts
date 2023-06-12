@@ -7,7 +7,7 @@ import "../SunToken.sol";
 
 
 
-contract StackPoolPrize { 
+contract StakePoolPrize { 
 
     mapping (uint256 => PrizePool) public PrizePools;
     //Each address can harvest only once!

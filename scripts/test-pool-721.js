@@ -16,13 +16,13 @@ for (let index = 0; index < 10; index++) {
     )
 }
 
-Stacking = await hre.ethers.getContractFactory("StackingPool");
-stacking = await Stacking.deploy();
+Stakeing = await hre.ethers.getContractFactory("StakeingPool");
+Stakeing = await Stakeing.deploy();
 
-await nft721.setApprovalForAll(stacking.address, true)
+await nft721.setApprovalForAll(Stakeing.address, true)
 
 // -> BigNumber { value: "3" }  
-await stacking.TicketCount({
+await Stakeing.TicketCount({
     init: false,
     used: false,
     tokenType: "721",
@@ -51,25 +51,25 @@ prize = {
     nft1155Id: 0,
     perTicketNFTShareCount: 0
 }
-await stacking.TicketCount(prize)
-await stacking.NewPrizePool(1, prize)
+await Stakeing.TicketCount(prize)
+await Stakeing.NewPrizePool(1, prize)
 
 //TODO - Add expect to these
 // -> BigNumber { value: "1" }
-await stacking.PrizePoolsIDs(0)
+await Stakeing.PrizePoolsIDs(0)
 // -> ... init: true
-await stacking.PrizePoolsIDs(1)
+await Stakeing.PrizePoolsIDs(1)
 // -> ... init: false
-await stacking.PrizePoolsIDs(1564)
-await stacking.PrizePoolsIDs(0)
-await stacking.PrizePoolsIDs(254)
+await Stakeing.PrizePoolsIDs(1564)
+await Stakeing.PrizePoolsIDs(0)
+await Stakeing.PrizePoolsIDs(254)
 
 // -> BigNumber { value: "100" }  
-await stacking.TicketCountById(1)
+await Stakeing.TicketCountById(1)
 // -> BigNumber { value: "0" }  
 await nft721.balanceOf(owner.address)
 // -> BigNumber { value: "100" }  
-await nft721.balanceOf(stacking.address)
+await nft721.balanceOf(Stakeing.address)
 
 
 //////////////////////////////////////////
@@ -84,19 +84,19 @@ await nft721.balanceOf(stacking.address)
 //     StartTime: Math.ceil(Date.now() / 1000),
 //     Duration: 1000,
 //     TotalTicketCount: 10,
-//     StackingToken: token.address,
+//     StakeingToken: token.address,
 //     tokensPerTicket: 300,
 //     init:false,
 // }
 
-// // await stacking.SetPoolPrize(10, prizes)
-// await stacking.NewPoolPolicy(10, pool , [1])
-// await stacking.Pools(10)
+// // await Stakeing.SetPoolPrize(10, prizes)
+// await Stakeing.NewPoolPolicy(10, pool , [1])
+// await Stakeing.Pools(10)
 
 // //Should fail since prize is used by another pool
-// await stacking.NewPoolPolicy(11, pool , [1])
+// await Stakeing.NewPoolPolicy(11, pool , [1])
 // //Should fail since prize non existant
-// await stacking.NewPoolPolicy(11, pool , [2,3])
+// await Stakeing.NewPoolPolicy(11, pool , [2,3])
 
 
 ////////////////////////////////////////
@@ -111,75 +111,75 @@ var pool = {
     StartTime: Math.ceil(Date.now() / 1000) + 400,
     Duration: 25,
     TotalTicketCount: 9,
-    StackingToken: token.address,
+    StakeingToken: token.address,
     tokensPerTicket: 100,
     init: false,
 }
 
-// await stacking.SetPoolPrize(10, prizes)
-await stacking.CreatePool(10, pool, [1], "0x")
-await stacking.Pools(10)
+// await Stakeing.SetPoolPrize(10, prizes)
+await Stakeing.CreatePool(10, pool, [1], "0x")
+await Stakeing.Pools(10)
 
 
 var before = {
-    stackNfts: await stacking.balanceOf(stacking.address, 10),
-    stakeTokens: await token.balanceOf(stacking.address),
-    ownerNfts: await stacking.balanceOf(owner.address, 10),
+    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+    stakeTokens: await token.balanceOf(Stakeing.address),
+    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
     ownerTokens: await token.balanceOf(owner.address),
 }
 
 //User Buys two tickets 
-await token.approve(stacking.address, "100000000000000000000")
-await stacking.Stack(10)
-await token.approve(stacking.address, "100000000000000000000")
-await stacking.Stack(10)
+await token.approve(Stakeing.address, "100000000000000000000")
+await Stakeing.Stake(10)
+await token.approve(Stakeing.address, "100000000000000000000")
+await Stakeing.Stake(10)
 
 var after = {
-    stackNfts: await stacking.balanceOf(stacking.address, 10),
-    stakeTokens: await token.balanceOf(stacking.address),
-    ownerNfts: await stacking.balanceOf(owner.address, 10),
+    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+    stakeTokens: await token.balanceOf(Stakeing.address),
+    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
     ownerTokens: await token.balanceOf(owner.address),
 }
 
 console.log({ before, after })
 
 // Immediate response should be failed due to pool not finished
-await stacking.HarvestMe(10)
+await Stakeing.HarvestMe(10)
 
 
 var before = {
-    stackNfts: await stacking.balanceOf(stacking.address, 10),
-    stakeTokens: await token.balanceOf(stacking.address),
-    ownerNfts: await stacking.balanceOf(owner.address, 10),
+    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+    stakeTokens: await token.balanceOf(Stakeing.address),
+    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
     ownerTokens: await token.balanceOf(owner.address),
 }
-//User Wants to unstack hence burning it's nft value (aka tickets)
-await stacking.UnStack(10, 1)
+//User Wants to unStake hence burning it's nft value (aka tickets)
+await Stakeing.UnStake(10, 1)
 var after = {
-    stackNfts: await stacking.balanceOf(stacking.address, 10),
-    stakeTokens: await token.balanceOf(stacking.address),
-    ownerNfts: await stacking.balanceOf(owner.address, 10),
+    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+    stakeTokens: await token.balanceOf(Stakeing.address),
+    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
     ownerTokens: await token.balanceOf(owner.address),
 }
 console.log({ before, after })
 
-await stacking.HarvestedPrizes(owner.address, 1)
+await Stakeing.HarvestedPrizes(owner.address, 1)
 
 setTimeout(async () => {
     var before = {
-        stackTickets: await stacking.balanceOf(stacking.address, 10),
-        stakeTokens: await token.balanceOf(stacking.address),
-        ownerTickets: await stacking.balanceOf(owner.address, 10),
+        StakeTickets: await Stakeing.balanceOf(Stakeing.address, 10),
+        stakeTokens: await token.balanceOf(Stakeing.address),
+        ownerTickets: await Stakeing.balanceOf(owner.address, 10),
         ownerTokens: await token.balanceOf(owner.address),
         ownerPrizeNft: await nft721.balanceOf(owner.address)
     }
 
-    await stacking.HarvestAndUnstackMe(10)
+    await Stakeing.HarvestAndUnStakeMe(10)
 
     var after = {
-        stackNfts: await stacking.balanceOf(stacking.address, 10),
-        stakeTokens: await token.balanceOf(stacking.address),
-        ownerNfts: await stacking.balanceOf(owner.address, 10),
+        StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+        stakeTokens: await token.balanceOf(Stakeing.address),
+        ownerNfts: await Stakeing.balanceOf(owner.address, 10),
         ownerTokens: await token.balanceOf(owner.address),
         ownerPrizeNft: await nft721.balanceOf(owner.address)
     }

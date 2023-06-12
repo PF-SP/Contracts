@@ -30,9 +30,9 @@ async function deployNFT1155() {
   return pool;
 }
 
-async function deployStackingPool() {
-  const SunStackingPool = await ethers.getContractFactory("StackingPool");
-  const nft = await SunStackingPool.deploy({ ...gasDetails });
+async function deployStakeingPool() {
+  const SunStakeingPool = await ethers.getContractFactory("StakeingPool");
+  const nft = await SunStakeingPool.deploy({ ...gasDetails });
   await nft.deployed();
   return nft;
 }
@@ -44,7 +44,7 @@ async function main() {
   // console.log("deploying token ...");
   // var token = await deployToken();
   // console.log("StakingPool deploying ...\r");
-  // var nftStakingPool = await deployStackingPool();
+  // var nftStakingPool = await deployStakeingPool();
   // console.log(`StakingPool ${nftStakingPool.address}\r`);
   // console.log("deploying 721 nft ...");
   // var nft721 = await deployNFT721();

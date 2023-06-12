@@ -1,2 +1,2 @@
-solc contracts/Stacking/SunNFTStacking.sol --bin --abi --overwrite --optimize --optimize-runs 1000 --combined-json abi,asm,ast,bin,bin-runtime,devdoc,function-debug,function-debug-runtime,generated-sources,generated-sources-runtime,hashes,metadata,opcodes,srcmap,srcmap-runtime,storage-layout,userdoc -o out/stacking/ --gas >out/stacking/gas.profile
-npx hardhat flatten contracts/Stacking/SunNFTStacking.sol >out/stacking/SunNFTStackingFlattern.sol
+solc contracts/Stakeing/SunNFTStakeing.sol --bin --abi --overwrite --optimize --optimize-runs 1000 --combined-json abi,asm,ast,bin,bin-runtime,devdoc,function-debug,function-debug-runtime,generated-sources,generated-sources-runtime,hashes,metadata,opcodes,srcmap,srcmap-runtime,storage-layout,userdoc -o out/Stakeing/ --gas >out/Stakeing/gas.profile
+npx hardhat flatten contracts/Stakeing/SunNFTStakeing.sol >out/Stakeing/SunNFTStakeingFlattern.sol

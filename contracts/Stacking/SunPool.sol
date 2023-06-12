@@ -6,7 +6,7 @@ import "./SunPoolPrize.sol";
 import "../SunToken.sol";
 import "../openzeppelin/contracts/access/Ownable.sol";
 
-contract StackPools is StackPoolPrize { 
+contract StakePools is StakePoolPrize { 
 
     // enum PoolState { Created, Locked, Paused } // Enum
     
@@ -20,7 +20,7 @@ contract StackPools is StackPoolPrize {
         uint256 StartTime ; 
         uint256 Duration ; 
         uint256 TotalTicketCount;
-        address StackingToken;
+        address StakeingToken;
         uint256 tokensPerTicket;
         // refers to prize mapping!;
         // Aparently solidity does not support this feature yet :)  

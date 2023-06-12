@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const hre = require("hardhat");
 
 const configs = {
-    stacking: null,
+    Stakeing: null,
     token: null,
     nft721: null,
     nft1155: null,
@@ -12,13 +12,13 @@ const configs = {
 }
 
 
-describe("StackingPool", function () {
+describe("StakeingPool", function () {
     this.beforeAll("Setup", async function () {
 
         const [owner, u1, u2] = await hre.ethers.getSigners();
 
-        Stacking = await hre.ethers.getContractFactory("StackingPool");
-        stacking = await Stacking.deploy();
+        Stakeing = await hre.ethers.getContractFactory("StakeingPool");
+        Stakeing = await Stakeing.deploy();
 
         NFT721 = await hre.ethers.getContractFactory("SunToken721");
         nft721 = await NFT721.deploy("SunCity", "SUN");
@@ -33,7 +33,7 @@ describe("StackingPool", function () {
         configs.badActor = u2;
         configs.goodActor = u1;
         configs.poolOwner = owner;
-        configs.stacking = stacking;
+        configs.Stakeing = Stakeing;
         configs.token = token;
         configs.nft1155 = nft1155;
         configs.nft721 = nft721;
@@ -46,8 +46,8 @@ describe("StackingPool", function () {
     // // TODO - PrizePoolCreation
     //TODO - PoolCreation
     //TODO - TicketBuying
-    //TODO - Stacking
-    //TODO - Unstacking
+    //TODO - Stakeing
+    //TODO - UnStakeing
     //TODO - Harvesting
     //TODO - Harvesting
 
@@ -63,8 +63,8 @@ describe("StackingPool", function () {
                 await nft721.safeMint(config.poolOwner.address, index, "")
             )
         }
-        await nft721.setApprovalForAll(stacking.address, true)
-        await stacking.NewPrizePool(PoolId, {
+        await nft721.setApprovalForAll(Stakeing.address, true)
+        await Stakeing.NewPrizePool(PoolId, {
             init: false,
             used: false,
             totalAmount: 0,
@@ -79,7 +79,7 @@ describe("StackingPool", function () {
         //TODO - Add expect to these
 
         // -> BigNumber { value: "3" }  
-        await stacking.TicketCount({
+        await Stakeing.TicketCount({
             init: false,
             used: false,
             totalAmount: 0,
@@ -91,19 +91,19 @@ describe("StackingPool", function () {
             nftIdRangeStart: 1
         })
         // -> BigNumber { value: "1" }
-        await stacking.PrizePoolsIDs(0)
+        await Stakeing.PrizePoolsIDs(0)
         // -> ... init: true
-        await stacking.PrizePools(PoolId)
+        await Stakeing.PrizePools(PoolId)
         // -> ... init: false
-        await stacking.PrizePoolsIDs(156004)
-        await stacking.PrizePoolsIDs(0)
-        await stacking.PrizePoolsIDs(25004)
+        await Stakeing.PrizePoolsIDs(156004)
+        await Stakeing.PrizePoolsIDs(0)
+        await Stakeing.PrizePoolsIDs(25004)
         // -> BigNumber { value: "ticketCount" }  
-        await stacking.TicketCountById(PoolId)
+        await Stakeing.TicketCountById(PoolId)
         // -> BigNumber { value: "0" }  
         await nft721.balanceOf(owner.address)
         // -> BigNumber { value: "ticketCount" }  
-        await nft721.balanceOf(stacking.address)
+        await nft721.balanceOf(Stakeing.address)
     });
 
 

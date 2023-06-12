@@ -15,7 +15,7 @@ import "../SunToken.sol";
 
 import "./SunPool.sol";
 
-contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721Holder ,ERC1155Holder, StackPools{
+contract StakeingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721Holder ,ERC1155Holder, StakePools{
     constructor() ERC1155("sun.city.pool") {}
 
     function setURI(string memory newuri) public onlyOwner {
@@ -35,28 +35,28 @@ contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
 
 
     /*
-    This act like creating a new stacking pool in which each user has a portion of pool by having value
+    This act like creating a new Stakeing pool in which each user has a portion of pool by having value
     - value of one act a ticket to the pool
     - tickets can be transfered to next user if wanted 
     - id coresponds to a pool id 
     - each poolid is like a nft of it's own which mean it can store metadata :)
     */
-    function Stack(uint256 PoolId ) public  {
+    function Stake(uint256 PoolId ) public  {
         Pool storage pool = Pools[PoolId];
         require(pool.init , "Pool not yet initiated !");
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
-        SunToken20 token = SunToken20(pool.StackingToken);
+        SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
         if (token.transferFrom(msg.sender, address(this), pool.tokensPerTicket) == true){
             // ONE ticket
             this.safeTransferFrom(address(this), msg.sender, PoolId, 1,"");
         }
     }
-    function StackMany(uint256 PoolId,uint256 amount ) public  {
+    function StakeMany(uint256 PoolId,uint256 amount ) public  {
         Pool storage pool = Pools[PoolId];
         require(pool.init , "Pool not yet initiated !");
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
-        SunToken20 token = SunToken20(pool.StackingToken);
+        SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
         if (token.transferFrom(msg.sender, address(this), pool.tokensPerTicket* amount) == true){
             // ONE ticket
@@ -64,14 +64,14 @@ contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
         }
     }
 
-    function UnStack(uint256 PoolId ,uint256 value) public  {
-        unStack(msg.sender, PoolId,value);
+    function UnStake(uint256 PoolId ,uint256 value) public  {
+        unStake(msg.sender, PoolId,value);
     }
-    function unStack(address account, uint256 PoolId ,uint256 value) private  {
+    function unStake(address account, uint256 PoolId ,uint256 value) private  {
         // Burning is not the best solution since it makes the unharested prize invalid ?)
         Pool storage pool = Pools[PoolId];
         require(this.balanceOf(account , PoolId) >= value,"insuffiant balance");
-        SunToken20 token = SunToken20(pool.StackingToken);
+        SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
         uint256 tokensToReturn = pool.tokensPerTicket * value;
         if (token.transfer(account, tokensToReturn) == true){
@@ -82,9 +82,9 @@ contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
     function HarvestMe(uint256 PoolId ) public  {
       Harvest(msg.sender, PoolId, msg.sender);
     }
-    function HarvestAndUnstackMe(uint256 PoolId ) public  {
+    function HarvestAndUnStakeMe(uint256 PoolId ) public  {
       Harvest(msg.sender, PoolId, msg.sender);
-      unStack(msg.sender, PoolId,this.balanceOf(msg.sender,PoolId) );
+      unStake(msg.sender, PoolId,this.balanceOf(msg.sender,PoolId) );
     }
     // Only Famres user's prize
     function Harvest(address account , uint256 PoolId , address recipient) public  {
@@ -100,7 +100,7 @@ contract StackingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
     function Drain(uint256 PoolId) public onlyOwner {
         // TODO
         // Admin - Can Harvest everything ???
-        // Admin - Can Harvest non-stacked prizes (بی صاحابا)
+        // Admin - Can Harvest non-Stakeed prizes (بی صاحابا)
         Pool storage pool = Pools[PoolId];
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
         Harvest(address(this),PoolId,msg.sender);
