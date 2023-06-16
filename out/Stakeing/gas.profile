@@ -2,7 +2,7 @@
 ======= contracts/Stakeing/SunNFTStakeing.sol:StakeingPool =======
 Gas estimation:
 construction:
-   infinite + 3409000 = infinite
+   infinite + 3471000 = infinite
 external:
    CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
    CreatePool(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[],bytes):	infinite
@@ -10,36 +10,36 @@ external:
    Harvest(address,uint256,address):	infinite
    HarvestAndUnStakeMe(uint256):	infinite
    HarvestMe(uint256):	infinite
-   HarvestedPrizes(address,uint256):	2711
+   HarvestedPrizes(address,uint256):	2714
    NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
-   PoolsIDs(uint256):	4651
-   PrizePools(uint256):	19755
-   PrizePoolsIDs(uint256):	4628
+   PoolsIDs(uint256):	4654
+   PrizePools(uint256):	19758
+   PrizePoolsIDs(uint256):	4631
    Stake(uint256):	infinite
    StakeMany(uint256,uint256):	infinite
    TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    TicketCountById(uint256):	infinite
    UnStake(uint256,uint256):	infinite
-   balanceOf(address,uint256):	2719
+   balanceOf(address,uint256):	2723
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2515
+   exists(uint256):	2518
    isApprovedForAll(address,address):	infinite
    onERC1155BatchReceived(address,address,uint256[],uint256[],bytes):	infinite
    onERC1155Received(address,address,uint256,uint256,bytes):	infinite
    onERC721Received(address,address,uint256,bytes):	infinite
-   owner():	2368
+   owner():	2369
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26798
+   setApprovalForAll(address,bool):	26801
    setURI(string):	infinite
    supportsInterface(bytes4):	infinite
-   totalSupply(uint256):	2492
-   transferOwnership(address):	28409
+   totalSupply(uint256):	2495
+   transferOwnership(address):	28412
    uri(uint256):	infinite
 internal:
    _beforeTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
@@ -48,28 +48,28 @@ internal:
 ======= contracts/Stakeing/SunPool.sol:StakePools =======
 Gas estimation:
 construction:
-   1219 + 1175800 = 1177019
+   1248 + 1197600 = 1198848
 external:
    CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
-   HarvestedPrizes(address,uint256):	2643
+   HarvestedPrizes(address,uint256):	2646
    NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
-   PoolsIDs(uint256):	4584
-   PrizePools(uint256):	19748
-   PrizePoolsIDs(uint256):	4605
+   PoolsIDs(uint256):	4587
+   PrizePools(uint256):	19751
+   PrizePoolsIDs(uint256):	4608
    TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    TicketCountById(uint256):	infinite
 
 ======= contracts/Stakeing/SunPoolPrize.sol:StakePoolPrize =======
 Gas estimation:
 construction:
-   719 + 685000 = 685719
+   728 + 697000 = 697728
 external:
-   HarvestedPrizes(address,uint256):	2643
+   HarvestedPrizes(address,uint256):	2646
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
-   PrizePools(uint256):	19703
-   PrizePoolsIDs(uint256):	4605
+   PrizePools(uint256):	19706
+   PrizePoolsIDs(uint256):	4608
    TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    TicketCountById(uint256):	infinite
 internal:
@@ -81,25 +81,25 @@ internal:
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1856200 = infinite
+   infinite + 1890400 = infinite
 external:
-   balanceOf(address,uint256):	2696
+   balanceOf(address,uint256):	2700
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2514
+   exists(uint256):	2517
    isApprovedForAll(address,address):	infinite
    mint(address,uint256,uint256,bytes):	infinite
    mintBatch(address,uint256[],uint256[],bytes):	infinite
-   owner():	2367
+   owner():	2368
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26769
+   setApprovalForAll(address,bool):	26772
    setURI(string):	infinite
-   supportsInterface(bytes4):	557
-   totalSupply(uint256):	2469
-   transferOwnership(address):	28384
+   supportsInterface(bytes4):	560
+   totalSupply(uint256):	2472
+   transferOwnership(address):	28387
    uri(uint256):	infinite
 internal:
    _beforeTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
@@ -107,27 +107,27 @@ internal:
 ======= contracts/Sun721NFT.sol:SunToken721 =======
 Gas estimation:
 construction:
-   infinite + 1445600 = infinite
+   infinite + 1468800 = infinite
 external:
    approve(address,uint256):	infinite
-   balanceOf(address):	2631
+   balanceOf(address):	2635
    burn(uint256):	infinite
-   getApproved(uint256):	4787
+   getApproved(uint256):	4792
    isApprovedForAll(address,address):	infinite
    name():	infinite
-   owner():	2375
-   ownerOf(uint256):	2618
+   owner():	2376
+   ownerOf(uint256):	2621
    renounceOwnership():	infinite
    safeMint(address,uint256,string):	infinite
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26769
+   setApprovalForAll(address,bool):	26772
    supportsInterface(bytes4):	infinite
    symbol():	infinite
    tokenURI(uint256):	infinite
-   totalSupply():	2340
+   totalSupply():	2341
    transferFrom(address,address,uint256):	infinite
-   transferOwnership(address):	28421
+   transferOwnership(address):	28424
 internal:
    _baseURI():	infinite
    _burn(uint256):	infinite
@@ -135,31 +135,31 @@ internal:
 ======= contracts/SunToken.sol:SunToken20 =======
 Gas estimation:
 construction:
-   infinite + 1260200 = infinite
+   infinite + 1277800 = infinite
 external:
    DOMAIN_SEPARATOR():	infinite
    allowance(address,address):	infinite
-   approve(address,uint256):	24671
-   balanceOf(address):	2626
-   burn(uint256):	52989
+   approve(address,uint256):	24675
+   balanceOf(address):	2629
+   burn(uint256):	52994
    burnFrom(address,uint256):	infinite
-   decimals():	244
-   decreaseAllowance(address,uint256):	26964
+   decimals():	245
+   decreaseAllowance(address,uint256):	26968
    eip712Domain():	infinite
    increaseAllowance(address,uint256):	infinite
    mint(address,uint256):	infinite
    name():	infinite
-   nonces(address):	2658
-   owner():	2418
+   nonces(address):	2661
+   owner():	2419
    pause():	infinite
-   paused():	2370
+   paused():	2371
    permit(address,address,uint256,uint256,uint8,bytes32,bytes32):	infinite
    renounceOwnership():	infinite
    symbol():	infinite
-   totalSupply():	2371
-   transfer(address,uint256):	53323
+   totalSupply():	2372
+   transfer(address,uint256):	53328
    transferFrom(address,address,uint256):	infinite
-   transferOwnership(address):	28439
+   transferOwnership(address):	28442
    unpause():	infinite
 internal:
    _beforeTokenTransfer(address,address,uint256):	infinite
@@ -179,15 +179,15 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC1155/ERC1155.sol:ERC1155 =======
 Gas estimation:
 construction:
-   infinite + 1065600 = infinite
+   infinite + 1083600 = infinite
 external:
-   balanceOf(address,uint256):	2673
+   balanceOf(address,uint256):	2677
    balanceOfBatch(address[],uint256[]):	infinite
    isApprovedForAll(address,address):	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26702
-   supportsInterface(bytes4):	534
+   setApprovalForAll(address,bool):	26705
+   supportsInterface(bytes4):	537
    uri(uint256):	infinite
 internal:
    _afterTokenTransfer(address,address,address,uint256[] memory,uint256[] memory,bytes memory):	infinite
@@ -222,11 +222,11 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol:ERC1155Holder =======
 Gas estimation:
 construction:
-   255 + 214800 = 215055
+   263 + 220600 = 220863
 external:
    onERC1155BatchReceived(address,address,uint256[],uint256[],bytes):	infinite
    onERC1155Received(address,address,uint256,uint256,bytes):	infinite
-   supportsInterface(bytes4):	389
+   supportsInterface(bytes4):	392
 
 ======= contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol:ERC1155Receiver =======
 Gas estimation:
@@ -234,18 +234,18 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC20/ERC20.sol:ERC20 =======
 Gas estimation:
 construction:
-   infinite + 469000 = infinite
+   infinite + 476400 = infinite
 external:
    allowance(address,address):	infinite
-   approve(address,uint256):	24647
-   balanceOf(address):	2582
-   decimals():	243
-   decreaseAllowance(address,uint256):	26918
+   approve(address,uint256):	24651
+   balanceOf(address):	2585
+   decimals():	244
+   decreaseAllowance(address,uint256):	26922
    increaseAllowance(address,uint256):	infinite
    name():	infinite
    symbol():	infinite
-   totalSupply():	2303
-   transfer(address,uint256):	51089
+   totalSupply():	2304
+   transfer(address,uint256):	51094
    transferFrom(address,address,uint256):	infinite
 internal:
    _afterTokenTransfer(address,address,uint256):	infinite
@@ -274,18 +274,18 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC721/ERC721.sol:ERC721 =======
 Gas estimation:
 construction:
-   infinite + 939000 = infinite
+   infinite + 953800 = infinite
 external:
    approve(address,uint256):	infinite
-   balanceOf(address):	2630
-   getApproved(uint256):	4787
+   balanceOf(address):	2634
+   getApproved(uint256):	4792
    isApprovedForAll(address,address):	infinite
    name():	infinite
-   ownerOf(uint256):	2552
+   ownerOf(uint256):	2555
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26702
-   supportsInterface(bytes4):	513
+   setApprovalForAll(address,bool):	26705
+   supportsInterface(bytes4):	516
    symbol():	infinite
    tokenURI(uint256):	infinite
    transferFrom(address,address,uint256):	infinite
@@ -326,14 +326,14 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol:ERC721Holder =======
 Gas estimation:
 construction:
-   145 + 101000 = 101145
+   153 + 103600 = 103753
 external:
    onERC721Received(address,address,uint256,bytes):	infinite
 
 ======= contracts/openzeppelin/contracts/utils/Address.sol:Address =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    _revert(bytes memory,string memory):	infinite
    functionCall(address,bytes memory):	infinite
@@ -355,7 +355,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/Counters.sol:Counters =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    current(struct Counters.Counter storage pointer):	infinite
    decrement(struct Counters.Counter storage pointer):	infinite
@@ -365,7 +365,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/ShortStrings.sol:ShortStrings =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    byteLength(ShortString):	infinite
    byteLengthWithFallback(ShortString,string storage pointer):	infinite
@@ -377,7 +377,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/StorageSlot.sol:StorageSlot =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    getAddressSlot(bytes32):	infinite
    getBooleanSlot(bytes32):	infinite
@@ -391,7 +391,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/Strings.sol:Strings =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    equal(string memory,string memory):	infinite
    toHexString(address):	infinite
@@ -403,7 +403,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/cryptography/ECDSA.sol:ECDSA =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    _throwError(enum ECDSA.RecoverError):	infinite
    recover(bytes32,bytes memory):	infinite
@@ -429,7 +429,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/math/Math.sol:Math =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    average(uint256,uint256):	infinite
    ceilDiv(uint256,uint256):	infinite
@@ -449,7 +449,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/math/SignedMath.sol:SignedMath =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    abs(int256):	infinite
    average(int256,int256):	infinite

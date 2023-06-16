@@ -41,24 +41,23 @@ async function main() {
   console.log(
     `${network.name} -> ${network.config.gasPrice} ${network.config.chainId}`
   );
-  // console.log("deploying token ...");
-  // var token = await deployToken();
-  // console.log("StakingPool deploying ...\r");
-  // var nftStakingPool = await deployStakeingPool();
-  // console.log(`StakingPool ${nftStakingPool.address}\r`);
-  // console.log("deploying 721 nft ...");
-  // var nft721 = await deployNFT721();
-  // console.log("deploying 1155 nft ...");
-  // var nft1155 = await deployNFT1155();
+  console.log("deploying token ...");
+  var token = await deployToken();
+  console.log("StakingPool deploying ...\r");
+  var nftStakingPool = await deployStakeingPool();
+  console.log(`StakingPool ${nftStakingPool.address}\r`);
+  console.log("deploying 721 nft ...");
+  var nft721 = await deployNFT721();
+  console.log("deploying 1155 nft ...");
+  var nft1155 = await deployNFT1155();
   let deploymentDetail = `
 # Deployed @ ${Date.now()} on ${network.name}\n
-- SunToken: 0xD82769043F17F05debAea51E51eE07e0F26E7967
+- SunToken: ${token.address}
 - NFT:
-\t- 721: 0x075134D0adb1759322c83accfB3b8e3A99B0a466
-\t- 1155: 0x446DEab17dEC05B78a596cbAB6fbf31C9255da6d
-- Pool: 0x5997f189Dc158B747CEBf7Bd6d6f7BF21e112185
+\t- 721: ${nft721.address}
+\t- 1155: ${nft1155.address}
+\t- Pool: ${nftStakingPool.address}
   `;
-  // \n- Pool: ${nftStakingPool.address}
   writeFile("out/DEPLOY.md", deploymentDetail, (err) => console.log({ err }));
 }
 

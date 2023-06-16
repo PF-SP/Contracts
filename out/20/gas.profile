@@ -2,31 +2,31 @@
 ======= contracts/SunToken.sol:SunToken20 =======
 Gas estimation:
 construction:
-   infinite + 1260200 = infinite
+   infinite + 1277800 = infinite
 external:
    DOMAIN_SEPARATOR():	infinite
    allowance(address,address):	infinite
-   approve(address,uint256):	24671
-   balanceOf(address):	2626
-   burn(uint256):	52989
+   approve(address,uint256):	24675
+   balanceOf(address):	2629
+   burn(uint256):	52994
    burnFrom(address,uint256):	infinite
-   decimals():	244
-   decreaseAllowance(address,uint256):	26964
+   decimals():	245
+   decreaseAllowance(address,uint256):	26968
    eip712Domain():	infinite
    increaseAllowance(address,uint256):	infinite
    mint(address,uint256):	infinite
    name():	infinite
-   nonces(address):	2658
-   owner():	2418
+   nonces(address):	2661
+   owner():	2419
    pause():	infinite
-   paused():	2370
+   paused():	2371
    permit(address,address,uint256,uint256,uint8,bytes32,bytes32):	infinite
    renounceOwnership():	infinite
    symbol():	infinite
-   totalSupply():	2371
-   transfer(address,uint256):	53323
+   totalSupply():	2372
+   transfer(address,uint256):	53328
    transferFrom(address,address,uint256):	infinite
-   transferOwnership(address):	28439
+   transferOwnership(address):	28442
    unpause():	infinite
 internal:
    _beforeTokenTransfer(address,address,uint256):	infinite
@@ -43,18 +43,18 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC20/ERC20.sol:ERC20 =======
 Gas estimation:
 construction:
-   infinite + 469000 = infinite
+   infinite + 476400 = infinite
 external:
    allowance(address,address):	infinite
-   approve(address,uint256):	24647
-   balanceOf(address):	2582
-   decimals():	243
-   decreaseAllowance(address,uint256):	26918
+   approve(address,uint256):	24651
+   balanceOf(address):	2585
+   decimals():	244
+   decreaseAllowance(address,uint256):	26922
    increaseAllowance(address,uint256):	infinite
    name():	infinite
    symbol():	infinite
-   totalSupply():	2303
-   transfer(address,uint256):	51089
+   totalSupply():	2304
+   transfer(address,uint256):	51094
    transferFrom(address,address,uint256):	infinite
 internal:
    _afterTokenTransfer(address,address,uint256):	infinite
@@ -86,7 +86,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/Counters.sol:Counters =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    current(struct Counters.Counter storage pointer):	infinite
    decrement(struct Counters.Counter storage pointer):	infinite
@@ -96,7 +96,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/ShortStrings.sol:ShortStrings =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    byteLength(ShortString):	infinite
    byteLengthWithFallback(ShortString,string storage pointer):	infinite
@@ -108,7 +108,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/StorageSlot.sol:StorageSlot =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    getAddressSlot(bytes32):	infinite
    getBooleanSlot(bytes32):	infinite
@@ -122,7 +122,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/Strings.sol:Strings =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    equal(string memory,string memory):	infinite
    toHexString(address):	infinite
@@ -134,7 +134,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/cryptography/ECDSA.sol:ECDSA =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    _throwError(enum ECDSA.RecoverError):	infinite
    recover(bytes32,bytes memory):	infinite
@@ -154,7 +154,7 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/utils/math/Math.sol:Math =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    average(uint256,uint256):	infinite
    ceilDiv(uint256,uint256):	infinite
@@ -174,7 +174,7 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/math/SignedMath.sol:SignedMath =======
 Gas estimation:
 construction:
-   96 + 17000 = 17096
+   103 + 17200 = 17303
 internal:
    abs(int256):	infinite
    average(int256,int256):	infinite
