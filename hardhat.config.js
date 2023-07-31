@@ -10,21 +10,24 @@ module.exports = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200
-      }
-    }
+        runs: 200,
+      },
+    },
   },
   paths: {
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
-    artifacts: "./artifacts"
+    artifacts: "./artifacts",
   },
   networks: {
     polygonTestNet: {
-      accounts: ["f1cdbf9fc5dfc2dee0dd9b264520010062b0a86b60dc3ae672a4a8b245f2951d"], // 0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8
+      accounts: [
+        "f1cdbf9fc5dfc2dee0dd9b264520010062b0a86b60dc3ae672a4a8b245f2951d",
+      ], // 0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8
       chainId: 80001,
       gasMultiplier: 1.08,
+      gasPrice: 35000000000,
       from: "0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8",
       // https://mumbai.polygonscan.com/address/0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8
       // explorer: "https://mumbai.polygonscan.com/"
@@ -34,11 +37,13 @@ module.exports = {
       // url: "https://polygon-mumbai.blockpi.network/v1/rpc/public",
     },
     ftmTestNet: {
-      accounts: ["f1cdbf9fc5dfc2dee0dd9b264520010062b0a86b60dc3ae672a4a8b245f2951d"], // 0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8
+      accounts: [
+        "f1cdbf9fc5dfc2dee0dd9b264520010062b0a86b60dc3ae672a4a8b245f2951d",
+      ], // 0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8
       chainId: 4002,
       gasMultiplier: 1.08,
       from: "0x0560aDB38A0C4828be88aeAE575F9ea5Acb549e8",
       url: "https://fantom-testnet.publicnode.com",
-    }
+    },
   },
 };

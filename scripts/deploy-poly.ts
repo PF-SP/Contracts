@@ -1,10 +1,10 @@
 import { BigNumber } from "ethers";
 import { ethers, network } from "hardhat";
-import { open, writeFile } from "fs";
+import { open, writeFile } from "node:fs";
 
-let gasDetails = {
-  // gasLimit: "6000000",
-  gasPrice: "2500000000",
+const gasDetails = {
+  // gasLimit: "5000000",
+  // gasPrice: "2000000000",
   value: 0,
 };
 
@@ -32,15 +32,17 @@ async function deployNFT1155() {
 
 async function deployStakeingPool() {
   const SunStakeingPool = await ethers.getContractFactory("StakeingPool");
-  const nft = await SunStakeingPool.deploy({ ...gasDetails });
-  await nft.deployed();
-  return nft;
+  const staking = await SunStakeingPool.deploy({ ...gasDetails });
+  await staking.deployed();
+  return staking;
 }
 
 async function main() {
   console.log(
-    `${network.name} -> ${network.config.gasPrice} ${network.config.chainId}`
+    `${network.name} -> ${network.config.gasPrice} ${network.config.chainId}`,
   );
+  // gasDetails.gasPrice = await ethers.get;
+  // console.log({ gasDetails });
   console.log("deploying token ...");
   var token = await deployToken();
   console.log("StakingPool deploying ...\r");

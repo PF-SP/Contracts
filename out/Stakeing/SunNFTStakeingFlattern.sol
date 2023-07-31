@@ -1,8 +1,8 @@
+// SPDX-License-Identifier: MIT
 // Sources flattened with hardhat v2.13.1 https://hardhat.org
 
 // File contracts/openzeppelin/contracts/utils/Context.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
 pragma solidity ^0.8.0;
@@ -27,10 +27,8 @@ abstract contract Context {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/access/Ownable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)
 
 pragma solidity ^0.8.0;
@@ -50,7 +48,10 @@ pragma solidity ^0.8.0;
 abstract contract Ownable is Context {
     address private _owner;
 
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
 
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
@@ -97,7 +98,10 @@ abstract contract Ownable is Context {
      * Can only be called by the current owner.
      */
     function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        require(
+            newOwner != address(0),
+            "Ownable: new owner is the zero address"
+        );
         _transferOwnership(newOwner);
     }
 
@@ -112,10 +116,8 @@ abstract contract Ownable is Context {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/introspection/IERC165.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -141,18 +143,14 @@ interface IERC165 {
     function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }
 
-
 // File contracts/openzeppelin/contracts/interfaces/IERC165.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (interfaces/IERC165.sol)
 
 pragma solidity ^0.8.0;
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/IERC721.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/IERC721.sol)
 
 pragma solidity ^0.8.0;
@@ -164,17 +162,29 @@ interface IERC721 is IERC165 {
     /**
      * @dev Emitted when `tokenId` token is transferred from `from` to `to`.
      */
-    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+    event Transfer(
+        address indexed from,
+        address indexed to,
+        uint256 indexed tokenId
+    );
 
     /**
      * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
      */
-    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+    event Approval(
+        address indexed owner,
+        address indexed approved,
+        uint256 indexed tokenId
+    );
 
     /**
      * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.
      */
-    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+    event ApprovalForAll(
+        address indexed owner,
+        address indexed operator,
+        bool approved
+    );
 
     /**
      * @dev Returns the number of tokens in ``owner``'s account.
@@ -203,7 +213,12 @@ interface IERC721 is IERC165 {
      *
      * Emits a {Transfer} event.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes calldata data
+    ) external;
 
     /**
      * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
@@ -219,7 +234,11 @@ interface IERC721 is IERC165 {
      *
      * Emits a {Transfer} event.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId) external;
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) external;
 
     /**
      * @dev Transfers `tokenId` token from `from` to `to`.
@@ -273,31 +292,30 @@ interface IERC721 is IERC165 {
      *
      * - `tokenId` must exist.
      */
-    function getApproved(uint256 tokenId) external view returns (address operator);
+    function getApproved(
+        uint256 tokenId
+    ) external view returns (address operator);
 
     /**
      * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
      *
      * See {setApprovalForAll}
      */
-    function isApprovedForAll(address owner, address operator) external view returns (bool);
+    function isApprovedForAll(
+        address owner,
+        address operator
+    ) external view returns (bool);
 }
-
 
 // File contracts/openzeppelin/contracts/interfaces/IERC721.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (interfaces/IERC721.sol)
 
 pragma solidity ^0.8.0;
 
-
 // File contracts/openzeppelin/contracts/interfaces/IERC4906.sol
 
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
-
 
 /// @title EIP-721 Metadata Update Extension
 interface IERC4906 is IERC165, IERC721 {
@@ -312,10 +330,8 @@ interface IERC4906 is IERC165, IERC721 {
     event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId);
 }
 
-
 // File contracts/openzeppelin/contracts/security/Pausable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)
 
 pragma solidity ^0.8.0;
@@ -419,10 +435,8 @@ abstract contract Pausable is Context {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (token/ERC1155/IERC1155.sol)
 
 pragma solidity ^0.8.0;
@@ -437,7 +451,13 @@ interface IERC1155 is IERC165 {
     /**
      * @dev Emitted when `value` tokens of token type `id` are transferred from `from` to `to` by `operator`.
      */
-    event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value);
+    event TransferSingle(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256 id,
+        uint256 value
+    );
 
     /**
      * @dev Equivalent to multiple {TransferSingle} events, where `operator`, `from` and `to` are the same for all
@@ -455,7 +475,11 @@ interface IERC1155 is IERC165 {
      * @dev Emitted when `account` grants or revokes permission to `operator` to transfer their tokens, according to
      * `approved`.
      */
-    event ApprovalForAll(address indexed account, address indexed operator, bool approved);
+    event ApprovalForAll(
+        address indexed account,
+        address indexed operator,
+        bool approved
+    );
 
     /**
      * @dev Emitted when the URI for token type `id` changes to `value`, if it is a non-programmatic URI.
@@ -473,7 +497,10 @@ interface IERC1155 is IERC165 {
      *
      * - `account` cannot be the zero address.
      */
-    function balanceOf(address account, uint256 id) external view returns (uint256);
+    function balanceOf(
+        address account,
+        uint256 id
+    ) external view returns (uint256);
 
     /**
      * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {balanceOf}.
@@ -503,7 +530,10 @@ interface IERC1155 is IERC165 {
      *
      * See {setApprovalForAll}.
      */
-    function isApprovedForAll(address account, address operator) external view returns (bool);
+    function isApprovedForAll(
+        address account,
+        address operator
+    ) external view returns (bool);
 
     /**
      * @dev Transfers `amount` tokens of token type `id` from `from` to `to`.
@@ -518,7 +548,13 @@ interface IERC1155 is IERC165 {
      * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
      * acceptance magic value.
      */
-    function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes calldata data) external;
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes calldata data
+    ) external;
 
     /**
      * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {safeTransferFrom}.
@@ -540,10 +576,8 @@ interface IERC1155 is IERC165 {
     ) external;
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC1155/extensions/IERC1155MetadataURI.sol)
 
 pragma solidity ^0.8.0;
@@ -564,10 +598,8 @@ interface IERC1155MetadataURI is IERC1155 {
     function uri(uint256 id) external view returns (string memory);
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC1155/IERC1155Receiver.sol)
 
 pragma solidity ^0.8.0;
@@ -624,10 +656,8 @@ interface IERC1155Receiver is IERC165 {
     ) external returns (bytes4);
 }
 
-
 // File contracts/openzeppelin/contracts/utils/Address.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Address.sol)
 
 pragma solidity ^0.8.1;
@@ -691,10 +721,16 @@ library Address {
      * https://solidity.readthedocs.io/en/v0.8.0/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].
      */
     function sendValue(address payable recipient, uint256 amount) internal {
-        require(address(this).balance >= amount, "Address: insufficient balance");
+        require(
+            address(this).balance >= amount,
+            "Address: insufficient balance"
+        );
 
         (bool success, ) = recipient.call{value: amount}("");
-        require(success, "Address: unable to send value, recipient may have reverted");
+        require(
+            success,
+            "Address: unable to send value, recipient may have reverted"
+        );
     }
 
     /**
@@ -715,8 +751,17 @@ library Address {
      *
      * _Available since v3.1._
      */
-    function functionCall(address target, bytes memory data) internal returns (bytes memory) {
-        return functionCallWithValue(target, data, 0, "Address: low-level call failed");
+    function functionCall(
+        address target,
+        bytes memory data
+    ) internal returns (bytes memory) {
+        return
+            functionCallWithValue(
+                target,
+                data,
+                0,
+                "Address: low-level call failed"
+            );
     }
 
     /**
@@ -744,8 +789,18 @@ library Address {
      *
      * _Available since v3.1._
      */
-    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {
-        return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
+    function functionCallWithValue(
+        address target,
+        bytes memory data,
+        uint256 value
+    ) internal returns (bytes memory) {
+        return
+            functionCallWithValue(
+                target,
+                data,
+                value,
+                "Address: low-level call with value failed"
+            );
     }
 
     /**
@@ -760,9 +815,20 @@ library Address {
         uint256 value,
         string memory errorMessage
     ) internal returns (bytes memory) {
-        require(address(this).balance >= value, "Address: insufficient balance for call");
-        (bool success, bytes memory returndata) = target.call{value: value}(data);
-        return verifyCallResultFromTarget(target, success, returndata, errorMessage);
+        require(
+            address(this).balance >= value,
+            "Address: insufficient balance for call"
+        );
+        (bool success, bytes memory returndata) = target.call{value: value}(
+            data
+        );
+        return
+            verifyCallResultFromTarget(
+                target,
+                success,
+                returndata,
+                errorMessage
+            );
     }
 
     /**
@@ -771,8 +837,16 @@ library Address {
      *
      * _Available since v3.3._
      */
-    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {
-        return functionStaticCall(target, data, "Address: low-level static call failed");
+    function functionStaticCall(
+        address target,
+        bytes memory data
+    ) internal view returns (bytes memory) {
+        return
+            functionStaticCall(
+                target,
+                data,
+                "Address: low-level static call failed"
+            );
     }
 
     /**
@@ -787,7 +861,13 @@ library Address {
         string memory errorMessage
     ) internal view returns (bytes memory) {
         (bool success, bytes memory returndata) = target.staticcall(data);
-        return verifyCallResultFromTarget(target, success, returndata, errorMessage);
+        return
+            verifyCallResultFromTarget(
+                target,
+                success,
+                returndata,
+                errorMessage
+            );
     }
 
     /**
@@ -796,8 +876,16 @@ library Address {
      *
      * _Available since v3.4._
      */
-    function functionDelegateCall(address target, bytes memory data) internal returns (bytes memory) {
-        return functionDelegateCall(target, data, "Address: low-level delegate call failed");
+    function functionDelegateCall(
+        address target,
+        bytes memory data
+    ) internal returns (bytes memory) {
+        return
+            functionDelegateCall(
+                target,
+                data,
+                "Address: low-level delegate call failed"
+            );
     }
 
     /**
@@ -812,7 +900,13 @@ library Address {
         string memory errorMessage
     ) internal returns (bytes memory) {
         (bool success, bytes memory returndata) = target.delegatecall(data);
-        return verifyCallResultFromTarget(target, success, returndata, errorMessage);
+        return
+            verifyCallResultFromTarget(
+                target,
+                success,
+                returndata,
+                errorMessage
+            );
     }
 
     /**
@@ -857,7 +951,10 @@ library Address {
         }
     }
 
-    function _revert(bytes memory returndata, string memory errorMessage) private pure {
+    function _revert(
+        bytes memory returndata,
+        string memory errorMessage
+    ) private pure {
         // Look for revert reason and bubble it up if present
         if (returndata.length > 0) {
             // The easiest way to bubble the revert reason is using memory via assembly
@@ -872,10 +969,8 @@ library Address {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/introspection/ERC165.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 
 pragma solidity ^0.8.0;
@@ -898,23 +993,18 @@ abstract contract ERC165 is IERC165 {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override returns (bool) {
         return interfaceId == type(IERC165).interfaceId;
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/ERC1155.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/ERC1155.sol)
 
 pragma solidity ^0.8.0;
-
-
-
-
-
 
 /**
  * @dev Implementation of the basic standard multi-token.
@@ -945,7 +1035,9 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC165, IERC165) returns (bool) {
         return
             interfaceId == type(IERC1155).interfaceId ||
             interfaceId == type(IERC1155MetadataURI).interfaceId ||
@@ -973,8 +1065,14 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
      *
      * - `account` cannot be the zero address.
      */
-    function balanceOf(address account, uint256 id) public view virtual override returns (uint256) {
-        require(account != address(0), "ERC1155: address zero is not a valid owner");
+    function balanceOf(
+        address account,
+        uint256 id
+    ) public view virtual override returns (uint256) {
+        require(
+            account != address(0),
+            "ERC1155: address zero is not a valid owner"
+        );
         return _balances[id][account];
     }
 
@@ -989,7 +1087,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         address[] memory accounts,
         uint256[] memory ids
     ) public view virtual override returns (uint256[] memory) {
-        require(accounts.length == ids.length, "ERC1155: accounts and ids length mismatch");
+        require(
+            accounts.length == ids.length,
+            "ERC1155: accounts and ids length mismatch"
+        );
 
         uint256[] memory batchBalances = new uint256[](accounts.length);
 
@@ -1003,14 +1104,20 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
     /**
      * @dev See {IERC1155-setApprovalForAll}.
      */
-    function setApprovalForAll(address operator, bool approved) public virtual override {
+    function setApprovalForAll(
+        address operator,
+        bool approved
+    ) public virtual override {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
     /**
      * @dev See {IERC1155-isApprovedForAll}.
      */
-    function isApprovedForAll(address account, address operator) public view virtual override returns (bool) {
+    function isApprovedForAll(
+        address account,
+        address operator
+    ) public view virtual override returns (bool) {
         return _operatorApprovals[account][operator];
     }
 
@@ -1076,7 +1183,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         _beforeTokenTransfer(operator, from, to, ids, amounts, data);
 
         uint256 fromBalance = _balances[id][from];
-        require(fromBalance >= amount, "ERC1155: insufficient balance for transfer");
+        require(
+            fromBalance >= amount,
+            "ERC1155: insufficient balance for transfer"
+        );
         unchecked {
             _balances[id][from] = fromBalance - amount;
         }
@@ -1106,7 +1216,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         uint256[] memory amounts,
         bytes memory data
     ) internal virtual {
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
         require(to != address(0), "ERC1155: transfer to the zero address");
 
         address operator = _msgSender();
@@ -1118,7 +1231,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
             uint256 amount = amounts[i];
 
             uint256 fromBalance = _balances[id][from];
-            require(fromBalance >= amount, "ERC1155: insufficient balance for transfer");
+            require(
+                fromBalance >= amount,
+                "ERC1155: insufficient balance for transfer"
+            );
             unchecked {
                 _balances[id][from] = fromBalance - amount;
             }
@@ -1129,7 +1245,14 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
         _afterTokenTransfer(operator, from, to, ids, amounts, data);
 
-        _doSafeBatchTransferAcceptanceCheck(operator, from, to, ids, amounts, data);
+        _doSafeBatchTransferAcceptanceCheck(
+            operator,
+            from,
+            to,
+            ids,
+            amounts,
+            data
+        );
     }
 
     /**
@@ -1166,7 +1289,12 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
      * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
      * acceptance magic value.
      */
-    function _mint(address to, uint256 id, uint256 amount, bytes memory data) internal virtual {
+    function _mint(
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes memory data
+    ) internal virtual {
         require(to != address(0), "ERC1155: mint to the zero address");
 
         address operator = _msgSender();
@@ -1180,7 +1308,14 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
         _afterTokenTransfer(operator, address(0), to, ids, amounts, data);
 
-        _doSafeTransferAcceptanceCheck(operator, address(0), to, id, amount, data);
+        _doSafeTransferAcceptanceCheck(
+            operator,
+            address(0),
+            to,
+            id,
+            amount,
+            data
+        );
     }
 
     /**
@@ -1201,7 +1336,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         bytes memory data
     ) internal virtual {
         require(to != address(0), "ERC1155: mint to the zero address");
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
 
         address operator = _msgSender();
 
@@ -1215,7 +1353,14 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
         _afterTokenTransfer(operator, address(0), to, ids, amounts, data);
 
-        _doSafeBatchTransferAcceptanceCheck(operator, address(0), to, ids, amounts, data);
+        _doSafeBatchTransferAcceptanceCheck(
+            operator,
+            address(0),
+            to,
+            ids,
+            amounts,
+            data
+        );
     }
 
     /**
@@ -1257,9 +1402,16 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
      *
      * - `ids` and `amounts` must have the same length.
      */
-    function _burnBatch(address from, uint256[] memory ids, uint256[] memory amounts) internal virtual {
+    function _burnBatch(
+        address from,
+        uint256[] memory ids,
+        uint256[] memory amounts
+    ) internal virtual {
         require(from != address(0), "ERC1155: burn from the zero address");
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
 
         address operator = _msgSender();
 
@@ -1270,7 +1422,10 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
             uint256 amount = amounts[i];
 
             uint256 fromBalance = _balances[id][from];
-            require(fromBalance >= amount, "ERC1155: burn amount exceeds balance");
+            require(
+                fromBalance >= amount,
+                "ERC1155: burn amount exceeds balance"
+            );
             unchecked {
                 _balances[id][from] = fromBalance - amount;
             }
@@ -1286,7 +1441,11 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
      *
      * Emits an {ApprovalForAll} event.
      */
-    function _setApprovalForAll(address owner, address operator, bool approved) internal virtual {
+    function _setApprovalForAll(
+        address owner,
+        address operator,
+        bool approved
+    ) internal virtual {
         require(owner != operator, "ERC1155: setting approval status for self");
         _operatorApprovals[owner][operator] = approved;
         emit ApprovalForAll(owner, operator, approved);
@@ -1359,7 +1518,15 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IERC1155Receiver(to).onERC1155Received(operator, from, id, amount, data) returns (bytes4 response) {
+            try
+                IERC1155Receiver(to).onERC1155Received(
+                    operator,
+                    from,
+                    id,
+                    amount,
+                    data
+                )
+            returns (bytes4 response) {
                 if (response != IERC1155Receiver.onERC1155Received.selector) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
@@ -1380,10 +1547,18 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IERC1155Receiver(to).onERC1155BatchReceived(operator, from, ids, amounts, data) returns (
-                bytes4 response
-            ) {
-                if (response != IERC1155Receiver.onERC1155BatchReceived.selector) {
+            try
+                IERC1155Receiver(to).onERC1155BatchReceived(
+                    operator,
+                    from,
+                    ids,
+                    amounts,
+                    data
+                )
+            returns (bytes4 response) {
+                if (
+                    response != IERC1155Receiver.onERC1155BatchReceived.selector
+                ) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
             } catch Error(string memory reason) {
@@ -1394,7 +1569,9 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
         }
     }
 
-    function _asSingletonArray(uint256 element) private pure returns (uint256[] memory) {
+    function _asSingletonArray(
+        uint256 element
+    ) private pure returns (uint256[] memory) {
         uint256[] memory array = new uint256[](1);
         array[0] = element;
 
@@ -1402,10 +1579,8 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC1155/extensions/ERC1155Burnable.sol)
 
 pragma solidity ^0.8.0;
@@ -1419,14 +1594,20 @@ pragma solidity ^0.8.0;
 abstract contract ERC1155Burnable is ERC1155 {
     function burn(address account, uint256 id, uint256 value) public virtual {
         require(
-            msg.sender == address(this) || account == _msgSender() || isApprovedForAll(account, _msgSender()),
+            msg.sender == address(this) ||
+                account == _msgSender() ||
+                isApprovedForAll(account, _msgSender()),
             "ERC1155: caller is not token owner or approved"
         );
 
         _burn(account, id, value);
     }
 
-    function burnBatch(address account, uint256[] memory ids, uint256[] memory values) public virtual {
+    function burnBatch(
+        address account,
+        uint256[] memory ids,
+        uint256[] memory values
+    ) public virtual {
         require(
             account == _msgSender() || isApprovedForAll(account, _msgSender()),
             "ERC1155: caller is not token owner or approved"
@@ -1436,10 +1617,8 @@ abstract contract ERC1155Burnable is ERC1155 {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC1155/extensions/ERC1155Supply.sol)
 
 pragma solidity ^0.8.0;
@@ -1493,7 +1672,10 @@ abstract contract ERC1155Supply is ERC1155 {
                 uint256 id = ids[i];
                 uint256 amount = amounts[i];
                 uint256 supply = _totalSupply[id];
-                require(supply >= amount, "ERC1155: burn amount exceeds totalSupply");
+                require(
+                    supply >= amount,
+                    "ERC1155: burn amount exceeds totalSupply"
+                );
                 unchecked {
                     _totalSupply[id] = supply - amount;
                 }
@@ -1502,14 +1684,11 @@ abstract contract ERC1155Supply is ERC1155 {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC1155/utils/ERC1155Receiver.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev _Available since v3.1._
@@ -1518,15 +1697,17 @@ abstract contract ERC1155Receiver is ERC165, IERC1155Receiver {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
-        return interfaceId == type(IERC1155Receiver).interfaceId || super.supportsInterface(interfaceId);
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC165, IERC165) returns (bool) {
+        return
+            interfaceId == type(IERC1155Receiver).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC1155/utils/ERC1155Holder.sol)
 
 pragma solidity ^0.8.0;
@@ -1561,10 +1742,8 @@ contract ERC1155Holder is ERC1155Receiver {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC20/IERC20.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -1585,7 +1764,11 @@ interface IERC20 {
      * @dev Emitted when the allowance of a `spender` for an `owner` is set by
      * a call to {approve}. `value` is the new allowance.
      */
-    event Approval(address indexed owner, address indexed spender, uint256 value);
+    event Approval(
+        address indexed owner,
+        address indexed spender,
+        uint256 value
+    );
 
     /**
      * @dev Returns the amount of tokens in existence.
@@ -1613,7 +1796,10 @@ interface IERC20 {
      *
      * This value changes when {approve} or {transferFrom} are called.
      */
-    function allowance(address owner, address spender) external view returns (uint256);
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint256);
 
     /**
      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
@@ -1640,13 +1826,15 @@ interface IERC20 {
      *
      * Emits a {Transfer} event.
      */
-    function transferFrom(address from, address to, uint256 amount) external returns (bool);
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) external returns (bool);
 }
-
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -1673,15 +1861,11 @@ interface IERC20Metadata is IERC20 {
     function decimals() external view returns (uint8);
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC20/ERC20.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
-
-
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -1774,7 +1958,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function balanceOf(address account) public view virtual override returns (uint256) {
+    function balanceOf(
+        address account
+    ) public view virtual override returns (uint256) {
         return _balances[account];
     }
 
@@ -1786,7 +1972,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `to` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      */
-    function transfer(address to, uint256 amount) public virtual override returns (bool) {
+    function transfer(
+        address to,
+        uint256 amount
+    ) public virtual override returns (bool) {
         address owner = _msgSender();
         _transfer(owner, to, amount);
         return true;
@@ -1795,7 +1984,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-allowance}.
      */
-    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+    function allowance(
+        address owner,
+        address spender
+    ) public view virtual override returns (uint256) {
         return _allowances[owner][spender];
     }
 
@@ -1809,7 +2001,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 amount) public virtual override returns (bool) {
+    function approve(
+        address spender,
+        uint256 amount
+    ) public virtual override returns (bool) {
         address owner = _msgSender();
         _approve(owner, spender, amount);
         return true;
@@ -1831,7 +2026,11 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - the caller must have allowance for ``from``'s tokens of at least
      * `amount`.
      */
-    function transferFrom(address from, address to, uint256 amount) public virtual override returns (bool) {
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) public virtual override returns (bool) {
         address spender = _msgSender();
         _spendAllowance(from, spender, amount);
         _transfer(from, to, amount);
@@ -1850,7 +2049,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+    function increaseAllowance(
+        address spender,
+        uint256 addedValue
+    ) public virtual returns (bool) {
         address owner = _msgSender();
         _approve(owner, spender, allowance(owner, spender) + addedValue);
         return true;
@@ -1870,10 +2072,16 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `spender` must have allowance for the caller of at least
      * `subtractedValue`.
      */
-    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+    function decreaseAllowance(
+        address spender,
+        uint256 subtractedValue
+    ) public virtual returns (bool) {
         address owner = _msgSender();
         uint256 currentAllowance = allowance(owner, spender);
-        require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
+        require(
+            currentAllowance >= subtractedValue,
+            "ERC20: decreased allowance below zero"
+        );
         unchecked {
             _approve(owner, spender, currentAllowance - subtractedValue);
         }
@@ -1895,14 +2103,21 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `to` cannot be the zero address.
      * - `from` must have a balance of at least `amount`.
      */
-    function _transfer(address from, address to, uint256 amount) internal virtual {
+    function _transfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual {
         require(from != address(0), "ERC20: transfer from the zero address");
         require(to != address(0), "ERC20: transfer to the zero address");
 
         _beforeTokenTransfer(from, to, amount);
 
         uint256 fromBalance = _balances[from];
-        require(fromBalance >= amount, "ERC20: transfer amount exceeds balance");
+        require(
+            fromBalance >= amount,
+            "ERC20: transfer amount exceeds balance"
+        );
         unchecked {
             _balances[from] = fromBalance - amount;
             // Overflow not possible: the sum of all balances is capped by totalSupply, and the sum is preserved by
@@ -1981,7 +2196,11 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `owner` cannot be the zero address.
      * - `spender` cannot be the zero address.
      */
-    function _approve(address owner, address spender, uint256 amount) internal virtual {
+    function _approve(
+        address owner,
+        address spender,
+        uint256 amount
+    ) internal virtual {
         require(owner != address(0), "ERC20: approve from the zero address");
         require(spender != address(0), "ERC20: approve to the zero address");
 
@@ -1997,10 +2216,17 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * Might emit an {Approval} event.
      */
-    function _spendAllowance(address owner, address spender, uint256 amount) internal virtual {
+    function _spendAllowance(
+        address owner,
+        address spender,
+        uint256 amount
+    ) internal virtual {
         uint256 currentAllowance = allowance(owner, spender);
         if (currentAllowance != type(uint256).max) {
-            require(currentAllowance >= amount, "ERC20: insufficient allowance");
+            require(
+                currentAllowance >= amount,
+                "ERC20: insufficient allowance"
+            );
             unchecked {
                 _approve(owner, spender, currentAllowance - amount);
             }
@@ -2021,7 +2247,11 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual {}
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual {}
 
     /**
      * @dev Hook that is called after any transfer of tokens. This includes
@@ -2037,13 +2267,15 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {}
+    function _afterTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual {}
 }
-
 
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Permit.sol)
 
 pragma solidity ^0.8.0;
@@ -2104,10 +2336,8 @@ interface IERC20Permit {
     function DOMAIN_SEPARATOR() external view returns (bytes32);
 }
 
-
 // File contracts/openzeppelin/contracts/utils/Counters.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
 
 pragma solidity ^0.8.0;
@@ -2151,10 +2381,8 @@ library Counters {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/math/Math.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/Math.sol)
 
 pragma solidity ^0.8.0;
@@ -2208,7 +2436,11 @@ library Math {
      * @dev Original credit to Remco Bloemen under MIT license (https://xn--2-umb.com/21/muldiv)
      * with further edits by Uniswap Labs also under MIT license.
      */
-    function mulDiv(uint256 x, uint256 y, uint256 denominator) internal pure returns (uint256 result) {
+    function mulDiv(
+        uint256 x,
+        uint256 y,
+        uint256 denominator
+    ) internal pure returns (uint256 result) {
         unchecked {
             // 512-bit multiply [prod1 prod0] = x * y. Compute the product mod 2^256 and mod 2^256 - 1, then use
             // use the Chinese Remainder Theorem to reconstruct the 512 bit result. The result is stored in two 256
@@ -2292,7 +2524,12 @@ library Math {
     /**
      * @notice Calculates x * y / denominator with full precision, following the selected rounding direction.
      */
-    function mulDiv(uint256 x, uint256 y, uint256 denominator, Rounding rounding) internal pure returns (uint256) {
+    function mulDiv(
+        uint256 x,
+        uint256 y,
+        uint256 denominator,
+        Rounding rounding
+    ) internal pure returns (uint256) {
         uint256 result = mulDiv(x, y, denominator);
         if (rounding == Rounding.Up && mulmod(x, y, denominator) > 0) {
             result += 1;
@@ -2341,10 +2578,15 @@ library Math {
     /**
      * @notice Calculates sqrt(a), following the selected rounding direction.
      */
-    function sqrt(uint256 a, Rounding rounding) internal pure returns (uint256) {
+    function sqrt(
+        uint256 a,
+        Rounding rounding
+    ) internal pure returns (uint256) {
         unchecked {
             uint256 result = sqrt(a);
-            return result + (rounding == Rounding.Up && result * result < a ? 1 : 0);
+            return
+                result +
+                (rounding == Rounding.Up && result * result < a ? 1 : 0);
         }
     }
 
@@ -2394,10 +2636,15 @@ library Math {
      * @dev Return the log in base 2, following the selected rounding direction, of a positive value.
      * Returns 0 if given 0.
      */
-    function log2(uint256 value, Rounding rounding) internal pure returns (uint256) {
+    function log2(
+        uint256 value,
+        Rounding rounding
+    ) internal pure returns (uint256) {
         unchecked {
             uint256 result = log2(value);
-            return result + (rounding == Rounding.Up && 1 << result < value ? 1 : 0);
+            return
+                result +
+                (rounding == Rounding.Up && 1 << result < value ? 1 : 0);
         }
     }
 
@@ -2443,10 +2690,15 @@ library Math {
      * @dev Return the log in base 10, following the selected rounding direction, of a positive value.
      * Returns 0 if given 0.
      */
-    function log10(uint256 value, Rounding rounding) internal pure returns (uint256) {
+    function log10(
+        uint256 value,
+        Rounding rounding
+    ) internal pure returns (uint256) {
         unchecked {
             uint256 result = log10(value);
-            return result + (rounding == Rounding.Up && 10 ** result < value ? 1 : 0);
+            return
+                result +
+                (rounding == Rounding.Up && 10 ** result < value ? 1 : 0);
         }
     }
 
@@ -2486,18 +2738,21 @@ library Math {
      * @dev Return the log in base 256, following the selected rounding direction, of a positive value.
      * Returns 0 if given 0.
      */
-    function log256(uint256 value, Rounding rounding) internal pure returns (uint256) {
+    function log256(
+        uint256 value,
+        Rounding rounding
+    ) internal pure returns (uint256) {
         unchecked {
             uint256 result = log256(value);
-            return result + (rounding == Rounding.Up && 1 << (result << 3) < value ? 1 : 0);
+            return
+                result +
+                (rounding == Rounding.Up && 1 << (result << 3) < value ? 1 : 0);
         }
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/math/SignedMath.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/math/SignedMath.sol)
 
 pragma solidity ^0.8.0;
@@ -2541,14 +2796,11 @@ library SignedMath {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/Strings.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/Strings.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev String operations.
@@ -2586,7 +2838,13 @@ library Strings {
      * @dev Converts a `int256` to its ASCII `string` decimal representation.
      */
     function toString(int256 value) internal pure returns (string memory) {
-        return string(abi.encodePacked(value < 0 ? "-" : "", toString(SignedMath.abs(value))));
+        return
+            string(
+                abi.encodePacked(
+                    value < 0 ? "-" : "",
+                    toString(SignedMath.abs(value))
+                )
+            );
     }
 
     /**
@@ -2601,7 +2859,10 @@ library Strings {
     /**
      * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.
      */
-    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {
+    function toHexString(
+        uint256 value,
+        uint256 length
+    ) internal pure returns (string memory) {
         bytes memory buffer = new bytes(2 * length + 2);
         buffer[0] = "0";
         buffer[1] = "x";
@@ -2623,15 +2884,16 @@ library Strings {
     /**
      * @dev Returns true if the two strings are equal.
      */
-    function equal(string memory a, string memory b) internal pure returns (bool) {
+    function equal(
+        string memory a,
+        string memory b
+    ) internal pure returns (bool) {
         return keccak256(bytes(a)) == keccak256(bytes(b));
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/cryptography/ECDSA.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/ECDSA.sol)
 
 pragma solidity ^0.8.0;
@@ -2683,7 +2945,10 @@ library ECDSA {
      *
      * _Available since v4.3._
      */
-    function tryRecover(bytes32 hash, bytes memory signature) internal pure returns (address, RecoverError) {
+    function tryRecover(
+        bytes32 hash,
+        bytes memory signature
+    ) internal pure returns (address, RecoverError) {
         if (signature.length == 65) {
             bytes32 r;
             bytes32 s;
@@ -2716,7 +2981,10 @@ library ECDSA {
      * this is by receiving a hash of the original message (which may otherwise
      * be too long), and then calling {toEthSignedMessageHash} on it.
      */
-    function recover(bytes32 hash, bytes memory signature) internal pure returns (address) {
+    function recover(
+        bytes32 hash,
+        bytes memory signature
+    ) internal pure returns (address) {
         (address recovered, RecoverError error) = tryRecover(hash, signature);
         _throwError(error);
         return recovered;
@@ -2729,8 +2997,15 @@ library ECDSA {
      *
      * _Available since v4.3._
      */
-    function tryRecover(bytes32 hash, bytes32 r, bytes32 vs) internal pure returns (address, RecoverError) {
-        bytes32 s = vs & bytes32(0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff);
+    function tryRecover(
+        bytes32 hash,
+        bytes32 r,
+        bytes32 vs
+    ) internal pure returns (address, RecoverError) {
+        bytes32 s = vs &
+            bytes32(
+                0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+            );
         uint8 v = uint8((uint256(vs) >> 255) + 27);
         return tryRecover(hash, v, r, s);
     }
@@ -2740,7 +3015,11 @@ library ECDSA {
      *
      * _Available since v4.2._
      */
-    function recover(bytes32 hash, bytes32 r, bytes32 vs) internal pure returns (address) {
+    function recover(
+        bytes32 hash,
+        bytes32 r,
+        bytes32 vs
+    ) internal pure returns (address) {
         (address recovered, RecoverError error) = tryRecover(hash, r, vs);
         _throwError(error);
         return recovered;
@@ -2752,7 +3031,12 @@ library ECDSA {
      *
      * _Available since v4.3._
      */
-    function tryRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) internal pure returns (address, RecoverError) {
+    function tryRecover(
+        bytes32 hash,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) internal pure returns (address, RecoverError) {
         // EIP-2 still allows signature malleability for ecrecover(). Remove this possibility and make the signature
         // unique. Appendix F in the Ethereum Yellow paper (https://ethereum.github.io/yellowpaper/paper.pdf), defines
         // the valid range for s in (301): 0 < s < secp256k1n ÷ 2 + 1, and for v in (302): v ∈ {27, 28}. Most
@@ -2762,7 +3046,10 @@ library ECDSA {
         // with 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141 - s1 and flip v from 27 to 28 or
         // vice versa. If your library also generates signatures with 0/1 for v instead 27/28, add 27 to v to accept
         // these malleable signatures as well.
-        if (uint256(s) > 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E7357A4501DDFE92F46681B20A0) {
+        if (
+            uint256(s) >
+            0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E7357A4501DDFE92F46681B20A0
+        ) {
             return (address(0), RecoverError.InvalidSignatureS);
         }
 
@@ -2779,7 +3066,12 @@ library ECDSA {
      * @dev Overload of {ECDSA-recover} that receives the `v`,
      * `r` and `s` signature fields separately.
      */
-    function recover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) internal pure returns (address) {
+    function recover(
+        bytes32 hash,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) internal pure returns (address) {
         (address recovered, RecoverError error) = tryRecover(hash, v, r, s);
         _throwError(error);
         return recovered;
@@ -2793,7 +3085,9 @@ library ECDSA {
      *
      * See {recover}.
      */
-    function toEthSignedMessageHash(bytes32 hash) internal pure returns (bytes32 message) {
+    function toEthSignedMessageHash(
+        bytes32 hash
+    ) internal pure returns (bytes32 message) {
         // 32 is the length in bytes of hash,
         // enforced by the type signature above
         /// @solidity memory-safe-assembly
@@ -2812,8 +3106,17 @@ library ECDSA {
      *
      * See {recover}.
      */
-    function toEthSignedMessageHash(bytes memory s) internal pure returns (bytes32) {
-        return keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n", Strings.toString(s.length), s));
+    function toEthSignedMessageHash(
+        bytes memory s
+    ) internal pure returns (bytes32) {
+        return
+            keccak256(
+                abi.encodePacked(
+                    "\x19Ethereum Signed Message:\n",
+                    Strings.toString(s.length),
+                    s
+                )
+            );
     }
 
     /**
@@ -2825,7 +3128,10 @@ library ECDSA {
      *
      * See {recover}.
      */
-    function toTypedDataHash(bytes32 domainSeparator, bytes32 structHash) internal pure returns (bytes32 data) {
+    function toTypedDataHash(
+        bytes32 domainSeparator,
+        bytes32 structHash
+    ) internal pure returns (bytes32 data) {
         /// @solidity memory-safe-assembly
         assembly {
             let ptr := mload(0x40)
@@ -2842,15 +3148,15 @@ library ECDSA {
      *
      * See {recover}.
      */
-    function toDataWithIntendedValidatorHash(address validator, bytes memory data) internal pure returns (bytes32) {
+    function toDataWithIntendedValidatorHash(
+        address validator,
+        bytes memory data
+    ) internal pure returns (bytes32) {
         return keccak256(abi.encodePacked("\x19\x00", validator, data));
     }
 }
 
-
 // File contracts/openzeppelin/contracts/interfaces/IERC5267.sol
-
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2878,10 +3184,8 @@ interface IERC5267 {
         );
 }
 
-
 // File contracts/openzeppelin/contracts/utils/StorageSlot.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (utils/StorageSlot.sol)
 // This file was procedurally generated from scripts/generate/templates/StorageSlot.js.
 
@@ -2942,7 +3246,9 @@ library StorageSlot {
     /**
      * @dev Returns an `AddressSlot` with member `value` located at `slot`.
      */
-    function getAddressSlot(bytes32 slot) internal pure returns (AddressSlot storage r) {
+    function getAddressSlot(
+        bytes32 slot
+    ) internal pure returns (AddressSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -2952,7 +3258,9 @@ library StorageSlot {
     /**
      * @dev Returns an `BooleanSlot` with member `value` located at `slot`.
      */
-    function getBooleanSlot(bytes32 slot) internal pure returns (BooleanSlot storage r) {
+    function getBooleanSlot(
+        bytes32 slot
+    ) internal pure returns (BooleanSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -2962,7 +3270,9 @@ library StorageSlot {
     /**
      * @dev Returns an `Bytes32Slot` with member `value` located at `slot`.
      */
-    function getBytes32Slot(bytes32 slot) internal pure returns (Bytes32Slot storage r) {
+    function getBytes32Slot(
+        bytes32 slot
+    ) internal pure returns (Bytes32Slot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -2972,7 +3282,9 @@ library StorageSlot {
     /**
      * @dev Returns an `Uint256Slot` with member `value` located at `slot`.
      */
-    function getUint256Slot(bytes32 slot) internal pure returns (Uint256Slot storage r) {
+    function getUint256Slot(
+        bytes32 slot
+    ) internal pure returns (Uint256Slot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -2982,7 +3294,9 @@ library StorageSlot {
     /**
      * @dev Returns an `StringSlot` with member `value` located at `slot`.
      */
-    function getStringSlot(bytes32 slot) internal pure returns (StringSlot storage r) {
+    function getStringSlot(
+        bytes32 slot
+    ) internal pure returns (StringSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -2992,7 +3306,9 @@ library StorageSlot {
     /**
      * @dev Returns an `StringSlot` representation of the string storage pointer `store`.
      */
-    function getStringSlot(string storage store) internal pure returns (StringSlot storage r) {
+    function getStringSlot(
+        string storage store
+    ) internal pure returns (StringSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := store.slot
@@ -3002,7 +3318,9 @@ library StorageSlot {
     /**
      * @dev Returns an `BytesSlot` with member `value` located at `slot`.
      */
-    function getBytesSlot(bytes32 slot) internal pure returns (BytesSlot storage r) {
+    function getBytesSlot(
+        bytes32 slot
+    ) internal pure returns (BytesSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := slot
@@ -3012,7 +3330,9 @@ library StorageSlot {
     /**
      * @dev Returns an `BytesSlot` representation of the bytes storage pointer `store`.
      */
-    function getBytesSlot(bytes storage store) internal pure returns (BytesSlot storage r) {
+    function getBytesSlot(
+        bytes storage store
+    ) internal pure returns (BytesSlot storage r) {
         /// @solidity memory-safe-assembly
         assembly {
             r.slot := store.slot
@@ -3020,10 +3340,7 @@ library StorageSlot {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/ShortStrings.sol
-
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.8;
 
@@ -3055,7 +3372,8 @@ type ShortString is bytes32;
  * ```
  */
 library ShortStrings {
-    bytes32 private constant _FALLBACK_SENTINEL = 0x00000000000000000000000000000000000000000000000000000000000000FF;
+    bytes32 private constant _FALLBACK_SENTINEL =
+        0x00000000000000000000000000000000000000000000000000000000000000FF;
 
     error StringTooLong(string str);
     error InvalidShortString();
@@ -3065,7 +3383,9 @@ library ShortStrings {
      *
      * This will trigger a `StringTooLong` error is the input string is too long.
      */
-    function toShortString(string memory str) internal pure returns (ShortString) {
+    function toShortString(
+        string memory str
+    ) internal pure returns (ShortString) {
         bytes memory bstr = bytes(str);
         if (bstr.length > 31) {
             revert StringTooLong(str);
@@ -3102,7 +3422,10 @@ library ShortStrings {
     /**
      * @dev Encode a string into a `ShortString`, or write it to storage if it is too long.
      */
-    function toShortStringWithFallback(string memory value, string storage store) internal returns (ShortString) {
+    function toShortStringWithFallback(
+        string memory value,
+        string storage store
+    ) internal returns (ShortString) {
         if (bytes(value).length < 32) {
             return toShortString(value);
         } else {
@@ -3114,7 +3437,10 @@ library ShortStrings {
     /**
      * @dev Decode a string that was encoded to `ShortString` or written to storage using {setWithFallback}.
      */
-    function toStringWithFallback(ShortString value, string storage store) internal pure returns (string memory) {
+    function toStringWithFallback(
+        ShortString value,
+        string storage store
+    ) internal pure returns (string memory) {
         if (ShortString.unwrap(value) != _FALLBACK_SENTINEL) {
             return toString(value);
         } else {
@@ -3128,7 +3454,10 @@ library ShortStrings {
      * WARNING: This will return the "byte length" of the string. This may not reflect the actual length in terms of
      * actual characters as the UTF-8 encoding of a single character can span over multiple bytes.
      */
-    function byteLengthWithFallback(ShortString value, string storage store) internal view returns (uint256) {
+    function byteLengthWithFallback(
+        ShortString value,
+        string storage store
+    ) internal view returns (uint256) {
         if (ShortString.unwrap(value) != _FALLBACK_SENTINEL) {
             return byteLength(value);
         } else {
@@ -3137,15 +3466,11 @@ library ShortStrings {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/utils/cryptography/EIP712.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (utils/cryptography/EIP712.sol)
 
 pragma solidity ^0.8.8;
-
-
 
 /**
  * @dev https://eips.ethereum.org/EIPS/eip-712[EIP 712] is a standard for hashing and signing of typed structured data.
@@ -3176,7 +3501,9 @@ abstract contract EIP712 is IERC5267 {
     using ShortStrings for *;
 
     bytes32 private constant _TYPE_HASH =
-        keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)");
+        keccak256(
+            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+        );
 
     // Cache the domain separator as an immutable value, but also store the chain id that it corresponds to, in order to
     // invalidate the cached domain separator if the chain id changes.
@@ -3227,7 +3554,16 @@ abstract contract EIP712 is IERC5267 {
     }
 
     function _buildDomainSeparator() private view returns (bytes32) {
-        return keccak256(abi.encode(_TYPE_HASH, _hashedName, _hashedVersion, block.chainid, address(this)));
+        return
+            keccak256(
+                abi.encode(
+                    _TYPE_HASH,
+                    _hashedName,
+                    _hashedVersion,
+                    block.chainid,
+                    address(this)
+                )
+            );
     }
 
     /**
@@ -3245,7 +3581,9 @@ abstract contract EIP712 is IERC5267 {
      * address signer = ECDSA.recover(digest, signature);
      * ```
      */
-    function _hashTypedDataV4(bytes32 structHash) internal view virtual returns (bytes32) {
+    function _hashTypedDataV4(
+        bytes32 structHash
+    ) internal view virtual returns (bytes32) {
         return ECDSA.toTypedDataHash(_domainSeparatorV4(), structHash);
     }
 
@@ -3281,17 +3619,11 @@ abstract contract EIP712 is IERC5267 {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/extensions/ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
-
-
-
-
 
 /**
  * @dev Implementation of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in
@@ -3310,7 +3642,9 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
 
     // solhint-disable-next-line var-name-mixedcase
     bytes32 private constant _PERMIT_TYPEHASH =
-        keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+        keccak256(
+            "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)"
+        );
     /**
      * @dev In previous versions `_PERMIT_TYPEHASH` was declared as `immutable`.
      * However, to ensure consistency with the upgradeable transpiler, we will continue
@@ -3341,7 +3675,16 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
     ) public virtual override {
         require(block.timestamp <= deadline, "ERC20Permit: expired deadline");
 
-        bytes32 structHash = keccak256(abi.encode(_PERMIT_TYPEHASH, owner, spender, value, _useNonce(owner), deadline));
+        bytes32 structHash = keccak256(
+            abi.encode(
+                _PERMIT_TYPEHASH,
+                owner,
+                spender,
+                value,
+                _useNonce(owner),
+                deadline
+            )
+        );
 
         bytes32 hash = _hashTypedDataV4(structHash);
 
@@ -3354,7 +3697,9 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
     /**
      * @dev See {IERC20Permit-nonces}.
      */
-    function nonces(address owner) public view virtual override returns (uint256) {
+    function nonces(
+        address owner
+    ) public view virtual override returns (uint256) {
         return _nonces[owner].current();
     }
 
@@ -3371,31 +3716,28 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
      *
      * _Available since v4.1._
      */
-    function _useNonce(address owner) internal virtual returns (uint256 current) {
+    function _useNonce(
+        address owner
+    ) internal virtual returns (uint256 current) {
         Counters.Counter storage nonce = _nonces[owner];
         current = nonce.current();
         nonce.increment();
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/extensions/draft-ERC20Permit.sol)
 
 pragma solidity ^0.8.0;
 
 // EIP-2612 is Final as of 2022-11-01. This file is deprecated.
 
-
 // File contracts/openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/extensions/ERC20Burnable.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev Extension of {ERC20} that allows token holders to destroy both their own
@@ -3429,10 +3771,8 @@ abstract contract ERC20Burnable is Context, ERC20 {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -3458,10 +3798,8 @@ interface IERC721Metadata is IERC721 {
     function tokenURI(uint256 tokenId) external view returns (string memory);
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/IERC721Receiver.sol)
 
 pragma solidity ^0.8.0;
@@ -3489,19 +3827,11 @@ interface IERC721Receiver {
     ) external returns (bytes4);
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/ERC721.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.2) (token/ERC721/ERC721.sol)
 
 pragma solidity ^0.8.0;
-
-
-
-
-
-
 
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including
@@ -3541,7 +3871,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC165, IERC165) returns (bool) {
         return
             interfaceId == type(IERC721).interfaceId ||
             interfaceId == type(IERC721Metadata).interfaceId ||
@@ -3551,15 +3883,22 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-balanceOf}.
      */
-    function balanceOf(address owner) public view virtual override returns (uint256) {
-        require(owner != address(0), "ERC721: address zero is not a valid owner");
+    function balanceOf(
+        address owner
+    ) public view virtual override returns (uint256) {
+        require(
+            owner != address(0),
+            "ERC721: address zero is not a valid owner"
+        );
         return _balances[owner];
     }
 
     /**
      * @dev See {IERC721-ownerOf}.
      */
-    function ownerOf(uint256 tokenId) public view virtual override returns (address) {
+    function ownerOf(
+        uint256 tokenId
+    ) public view virtual override returns (address) {
         address owner = _ownerOf(tokenId);
         require(owner != address(0), "ERC721: invalid token ID");
         return owner;
@@ -3582,11 +3921,16 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721Metadata-tokenURI}.
      */
-    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+    function tokenURI(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
         _requireMinted(tokenId);
 
         string memory baseURI = _baseURI();
-        return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
+        return
+            bytes(baseURI).length > 0
+                ? string(abi.encodePacked(baseURI, tokenId.toString()))
+                : "";
     }
 
     /**
@@ -3616,7 +3960,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-getApproved}.
      */
-    function getApproved(uint256 tokenId) public view virtual override returns (address) {
+    function getApproved(
+        uint256 tokenId
+    ) public view virtual override returns (address) {
         _requireMinted(tokenId);
 
         return _tokenApprovals[tokenId];
@@ -3625,23 +3971,36 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-setApprovalForAll}.
      */
-    function setApprovalForAll(address operator, bool approved) public virtual override {
+    function setApprovalForAll(
+        address operator,
+        bool approved
+    ) public virtual override {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
     /**
      * @dev See {IERC721-isApprovedForAll}.
      */
-    function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
+    function isApprovedForAll(
+        address owner,
+        address operator
+    ) public view virtual override returns (bool) {
         return _operatorApprovals[owner][operator];
     }
 
     /**
      * @dev See {IERC721-transferFrom}.
      */
-    function transferFrom(address from, address to, uint256 tokenId) public virtual override {
+    function transferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) public virtual override {
         //solhint-disable-next-line max-line-length
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner or approved");
+        require(
+            _isApprovedOrOwner(_msgSender(), tokenId),
+            "ERC721: caller is not token owner or approved"
+        );
 
         _transfer(from, to, tokenId);
     }
@@ -3649,15 +4008,27 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-safeTransferFrom}.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId) public virtual override {
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) public virtual override {
         safeTransferFrom(from, to, tokenId, "");
     }
 
     /**
      * @dev See {IERC721-safeTransferFrom}.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public virtual override {
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner or approved");
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) public virtual override {
+        require(
+            _isApprovedOrOwner(_msgSender(), tokenId),
+            "ERC721: caller is not token owner or approved"
+        );
         _safeTransfer(from, to, tokenId, data);
     }
 
@@ -3679,9 +4050,17 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits a {Transfer} event.
      */
-    function _safeTransfer(address from, address to, uint256 tokenId, bytes memory data) internal virtual {
+    function _safeTransfer(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) internal virtual {
         _transfer(from, to, tokenId);
-        require(_checkOnERC721Received(from, to, tokenId, data), "ERC721: transfer to non ERC721Receiver implementer");
+        require(
+            _checkOnERC721Received(from, to, tokenId, data),
+            "ERC721: transfer to non ERC721Receiver implementer"
+        );
     }
 
     /**
@@ -3710,9 +4089,14 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * - `tokenId` must exist.
      */
-    function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual returns (bool) {
+    function _isApprovedOrOwner(
+        address spender,
+        uint256 tokenId
+    ) internal view virtual returns (bool) {
         address owner = ERC721.ownerOf(tokenId);
-        return (spender == owner || isApprovedForAll(owner, spender) || getApproved(tokenId) == spender);
+        return (spender == owner ||
+            isApprovedForAll(owner, spender) ||
+            getApproved(tokenId) == spender);
     }
 
     /**
@@ -3733,7 +4117,11 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      * @dev Same as {xref-ERC721-_safeMint-address-uint256-}[`_safeMint`], with an additional `data` parameter which is
      * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
      */
-    function _safeMint(address to, uint256 tokenId, bytes memory data) internal virtual {
+    function _safeMint(
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) internal virtual {
         _mint(to, tokenId);
         require(
             _checkOnERC721Received(address(0), to, tokenId, data),
@@ -3822,14 +4210,24 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits a {Transfer} event.
      */
-    function _transfer(address from, address to, uint256 tokenId) internal virtual {
-        require(ERC721.ownerOf(tokenId) == from, "ERC721: transfer from incorrect owner");
+    function _transfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal virtual {
+        require(
+            ERC721.ownerOf(tokenId) == from,
+            "ERC721: transfer from incorrect owner"
+        );
         require(to != address(0), "ERC721: transfer to the zero address");
 
         _beforeTokenTransfer(from, to, tokenId, 1);
 
         // Check that tokenId was not transferred by `_beforeTokenTransfer` hook
-        require(ERC721.ownerOf(tokenId) == from, "ERC721: transfer from incorrect owner");
+        require(
+            ERC721.ownerOf(tokenId) == from,
+            "ERC721: transfer from incorrect owner"
+        );
 
         // Clear approvals from the previous owner
         delete _tokenApprovals[tokenId];
@@ -3865,7 +4263,11 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits an {ApprovalForAll} event.
      */
-    function _setApprovalForAll(address owner, address operator, bool approved) internal virtual {
+    function _setApprovalForAll(
+        address owner,
+        address operator,
+        bool approved
+    ) internal virtual {
         require(owner != operator, "ERC721: approve to caller");
         _operatorApprovals[owner][operator] = approved;
         emit ApprovalForAll(owner, operator, approved);
@@ -3895,11 +4297,20 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
         bytes memory data
     ) private returns (bool) {
         if (to.isContract()) {
-            try IERC721Receiver(to).onERC721Received(_msgSender(), from, tokenId, data) returns (bytes4 retval) {
+            try
+                IERC721Receiver(to).onERC721Received(
+                    _msgSender(),
+                    from,
+                    tokenId,
+                    data
+                )
+            returns (bytes4 retval) {
                 return retval == IERC721Receiver.onERC721Received.selector;
             } catch (bytes memory reason) {
                 if (reason.length == 0) {
-                    revert("ERC721: transfer to non ERC721Receiver implementer");
+                    revert(
+                        "ERC721: transfer to non ERC721Receiver implementer"
+                    );
                 } else {
                     /// @solidity memory-safe-assembly
                     assembly {
@@ -3926,7 +4337,12 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _beforeTokenTransfer(address from, address to, uint256 firstTokenId, uint256 batchSize) internal virtual {}
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 firstTokenId,
+        uint256 batchSize
+    ) internal virtual {}
 
     /**
      * @dev Hook that is called after any token transfer. This includes minting and burning. If {ERC721Consecutive} is
@@ -3942,7 +4358,12 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _afterTokenTransfer(address from, address to, uint256 firstTokenId, uint256 batchSize) internal virtual {}
+    function _afterTokenTransfer(
+        address from,
+        address to,
+        uint256 firstTokenId,
+        uint256 batchSize
+    ) internal virtual {}
 
     /**
      * @dev Unsafe write access to the balances, used by extensions that "mint" tokens using an {ownerOf} override.
@@ -3952,19 +4373,19 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      * that `ownerOf(tokenId)` is `a`.
      */
     // solhint-disable-next-line func-name-mixedcase
-    function __unsafe_increaseBalance(address account, uint256 amount) internal {
+    function __unsafe_increaseBalance(
+        address account,
+        uint256 amount
+    ) internal {
         _balances[account] += amount;
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/extensions/ERC721Burnable.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @title ERC721 Burnable Token
@@ -3980,19 +4401,19 @@ abstract contract ERC721Burnable is Context, ERC721 {
      */
     function burn(uint256 tokenId) public virtual {
         //solhint-disable-next-line max-line-length
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner or approved");
+        require(
+            _isApprovedOrOwner(_msgSender(), tokenId),
+            "ERC721: caller is not token owner or approved"
+        );
         _burn(tokenId);
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/extensions/ERC721URIStorage.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev ERC721 token with storage based token URI management.
@@ -4006,14 +4427,20 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
     /**
      * @dev See {IERC165-supportsInterface}
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721, IERC165) returns (bool) {
-        return interfaceId == bytes4(0x49064906) || super.supportsInterface(interfaceId);
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC721, IERC165) returns (bool) {
+        return
+            interfaceId == bytes4(0x49064906) ||
+            super.supportsInterface(interfaceId);
     }
 
     /**
      * @dev See {IERC721Metadata-tokenURI}.
      */
-    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+    function tokenURI(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
         _requireMinted(tokenId);
 
         string memory _tokenURI = _tokenURIs[tokenId];
@@ -4040,8 +4467,14 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
      *
      * - `tokenId` must exist.
      */
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
-        require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
+    function _setTokenURI(
+        uint256 tokenId,
+        string memory _tokenURI
+    ) internal virtual {
+        require(
+            _exists(tokenId),
+            "ERC721URIStorage: URI set of nonexistent token"
+        );
         _tokenURIs[tokenId] = _tokenURI;
 
         emit MetadataUpdate(tokenId);
@@ -4061,10 +4494,8 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
     }
 }
 
-
 // File contracts/openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/utils/ERC721Holder.sol)
 
 pragma solidity ^0.8.0;
@@ -4081,19 +4512,19 @@ contract ERC721Holder is IERC721Receiver {
      *
      * Always returns `IERC721Receiver.onERC721Received.selector`.
      */
-    function onERC721Received(address, address, uint256, bytes memory) public virtual override returns (bytes4) {
+    function onERC721Received(
+        address,
+        address,
+        uint256,
+        bytes memory
+    ) public virtual override returns (bytes4) {
         return this.onERC721Received.selector;
     }
 }
 
-
 // File contracts/Sun1155NFT.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-
-
-
 
 contract SunToken1155 is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
     constructor() ERC1155("sun.city") {}
@@ -4102,52 +4533,61 @@ contract SunToken1155 is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         _setURI(newuri);
     }
 
-    function mint(address account, uint256 id, uint256 amount, bytes memory data)
-        public
-        onlyOwner
-    {
+    function mint(
+        address account,
+        uint256 id,
+        uint256 amount,
+        bytes memory data
+    ) public onlyOwner {
         _mint(account, id, amount, data);
     }
 
-    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        public
-        onlyOwner
-    {
+    function mintBatch(
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        bytes memory data
+    ) public onlyOwner {
         _mintBatch(to, ids, amounts, data);
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        internal
-        override(ERC1155, ERC1155Supply)
-    {
+    function _beforeTokenTransfer(
+        address operator,
+        address from,
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        bytes memory data
+    ) internal override(ERC1155, ERC1155Supply) {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 }
 
-
 // File contracts/Sun721NFT.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
-
-
 contract SunToken721 is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
-    uint256 public totalSupply; 
-    constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
+    uint256 public totalSupply;
+
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) ERC721(_name, _symbol) {}
+
     // constructor() ERC721("SunCity", _symbol) {}
 
     function _baseURI() internal pure override returns (string memory) {
         return "Sun.city";
     }
 
-    function safeMint(address to, uint256 tokenId, string memory uri)
-        public
-        onlyOwner
-    {
+    function safeMint(
+        address to,
+        uint256 tokenId,
+        string memory uri
+    ) public onlyOwner {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
         totalSupply += 1;
@@ -4155,42 +4595,34 @@ contract SunToken721 is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
 
     // The following functions are overrides required by Solidity.
 
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (bool)
-    {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    function _burn(
+        uint256 tokenId
+    ) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
     }
 }
 
-
 // File contracts/SunToken.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
-
-
-
 contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
-    constructor(string memory _name, string memory _symbol) ERC20( _name, _symbol) ERC20Permit( _name) {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) ERC20(_name, _symbol) ERC20Permit(_name) {
         _mint(msg.sender, 100000 * 10 ** decimals());
     }
 
@@ -4206,37 +4638,32 @@ contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
         _mint(to, amount);
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        whenNotPaused
-        override
-    {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal override whenNotPaused {
         super._beforeTokenTransfer(from, to, amount);
     }
 }
 
-
 // File contracts/Stakeing/SunPoolPrize.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
-
-contract StakePoolPrize { 
-
-    mapping (uint256 => PrizePool) public PrizePools;
+contract StakePoolPrize {
+    mapping(uint256 => PrizePool) public PrizePools;
     //Each address can harvest only once!
     //This is for not stealing other ppls assets
     mapping(address => mapping(uint256 => bool)) public HarvestedPrizes;
-    mapping(uint256  => uint256) private LastHarvestedId;
+    mapping(uint256 => uint256) private LastHarvestedId;
 
-    mapping (uint256 => uint256[]) internal NFT721ArrayOfIDs;
+    mapping(uint256 => uint256[]) internal NFT721ArrayOfIDs;
 
     uint256[] public PrizePoolsIDs;
 
     struct PrizePool {
-        // To check if initated before or not 
+        // To check if initated before or not
         bool init;
         // each prize pool is unique and can only be accssed from one pool
         bool used;
@@ -4246,15 +4673,15 @@ contract StakePoolPrize {
         // If prize is in 20
         uint256 totalAmount;
         uint256 perTicketAmount;
-        // If is of type 721 
+        // If is of type 721
         // NOTE - Prize pool is range of ids that of identical nfts which are locked in contract in advance !
         // And Each user is prized with a range of ids
         // e.g.
         // - Prize Pool has 100 nfts which thier ids are from 1...100
         // - Each ticket wins 2 ids
-        // - ticket 1 -> nft-id 1 & nft-id 2  
+        // - ticket 1 -> nft-id 1 & nft-id 2
         // - ticket 2 -> nft-id 3 & nft-id 4
-        // - one ticket ??? 
+        // - one ticket ???
         uint256 perTicketIdCount;
         uint256 nftIdRangeStart;
         uint256 nftIdRangeEnd;
@@ -4263,7 +4690,7 @@ contract StakePoolPrize {
         // Which in my mind should always be 100% share of that perticular nft ...
         // ranges from 1 ... 100
         // 1 : represents nft's totalSupply / 100 -> per ticket
-        // 100 : represents nft's totalSupply / 1 -> per ticket 
+        // 100 : represents nft's totalSupply / 1 -> per ticket
         uint256 nft1155Id;
         uint256 totalNFTValue;
         uint256 perTicketNFTShareCount;
@@ -4272,184 +4699,241 @@ contract StakePoolPrize {
     function TicketCountById(uint256 PoolId) public view returns (uint256) {
         return TicketCount(PrizePools[PoolId]);
     }
+
     function TicketCount(PrizePool memory prize) public view returns (uint256) {
-        if (prize.tokenType == 0){
+        if (prize.tokenType == 0) {
             revert("Prize Pool Not Found!");
-        }else if (prize.tokenType == 20){
-            require(prize.perTicketAmount > 0, "Expected Prize per ticket to be more than 0") ;
-            require(prize.totalAmount > 0, "Expected total prize to be more than 0") ;
-            return prize.totalAmount  /  (prize.perTicketAmount  );
-        }else if (prize.tokenType == 721){
-            require(prize.perTicketIdCount > 0, "Expected perTicketIdCount to be more than 0") ;
-            require(prize.nftIdRangeStart >= 0, "Expected  nftIdRangeStart to be more than 0") ;
-            require(prize.nftIdRangeEnd > prize.nftIdRangeStart, "Expected nftIdRangeEnd to be more than nftIdRangeStart") ;
-            return  ( prize.nftIdRangeEnd - prize.nftIdRangeStart )  / (prize.perTicketIdCount );
-        }else if (prize.tokenType == 1155 ){
-            return prize.totalNFTValue  / prize.perTicketNFTShareCount;
+        } else if (prize.tokenType == 20) {
+            require(
+                prize.perTicketAmount > 0,
+                "Expected Prize per ticket to be more than 0"
+            );
+            require(
+                prize.totalAmount > 0,
+                "Expected total prize to be more than 0"
+            );
+            return prize.totalAmount / (prize.perTicketAmount);
+        } else if (prize.tokenType == 721) {
+            require(
+                prize.perTicketIdCount > 0,
+                "Expected perTicketIdCount to be more than 0"
+            );
+            require(
+                prize.nftIdRangeStart >= 0,
+                "Expected  nftIdRangeStart to be more than 0"
+            );
+            require(
+                prize.nftIdRangeEnd > prize.nftIdRangeStart,
+                "Expected nftIdRangeEnd to be more than nftIdRangeStart"
+            );
+            return
+                (prize.nftIdRangeEnd - prize.nftIdRangeStart) /
+                (prize.perTicketIdCount);
+        } else if (prize.tokenType == 1155) {
+            return prize.totalNFTValue / prize.perTicketNFTShareCount;
         }
         revert("Bad token type, Can be one of (20,721,1155)");
     }
 
-    function lockERC20Tokens(address tokenAddr, uint256 amount )  private {
-        SunToken20 sunToken = SunToken20(address(tokenAddr)); 
-        sunToken.transferFrom(msg.sender, address(this),amount);
+    function lockERC20Tokens(address tokenAddr, uint256 amount) private {
+        SunToken20 sunToken = SunToken20(address(tokenAddr));
+        sunToken.transferFrom(msg.sender, address(this), amount);
     }
-    function lockERC721Tokens(address nftAddr, uint256  startingId, uint256  endingId )  private {
-        SunToken721 nft = SunToken721(address(nftAddr)); 
-        uint256[] memory  ids = new uint256[](endingId - startingId);
-        for (uint i = startingId; i < endingId; i++) {
+
+    function lockERC721Tokens(
+        address nftAddr,
+        uint256 startingId,
+        uint256 endingId
+    ) private {
+        SunToken721 nft = SunToken721(address(nftAddr));
+        uint256[] memory ids = new uint256[](endingId - startingId);
+        for (uint256 i = startingId; i < endingId; i++) {
             ids[i - startingId] = i;
         }
-        for (uint i = 0; i < ids.length; i++) {
+        for (uint256 i = 0; i < ids.length; i++) {
             nft.safeTransferFrom(msg.sender, address(this), ids[i]);
         }
     }
 
-    function lockERC1155Tokens(address _address, uint256  _id, uint256  value)  private {
-        SunToken1155 nft = SunToken1155(address(_address)); 
-        nft.safeTransferFrom(msg.sender,address(this), _id,value, "");
+    function lockERC1155Tokens(
+        address _address,
+        uint256 _id,
+        uint256 value
+    ) private {
+        SunToken1155 nft = SunToken1155(address(_address));
+        nft.safeTransferFrom(msg.sender, address(this), _id, value, "");
     }
 
-
-    // this a dangerous funcion since it havrest without any checks 
-    function harvestPrizePool(address account,uint256 PoolPrizeId , address recipient) internal {
+    // this a dangerous funcion since it havrest without any checks
+    function harvestPrizePool(
+        address account,
+        uint256 PoolPrizeId,
+        address recipient
+    ) internal {
         require(!HarvestedPrizes[account][PoolPrizeId], "Already harvested ");
         PrizePool storage prize = PrizePools[PoolPrizeId];
         require(prize.init, "prize pool does not exists ");
         require(prize.used, "prize pool is not used by any pools ");
         HarvestedPrizes[account][PoolPrizeId] = true;
         if (prize.tokenType == 20) {
-            SunToken20(prize.tokenContract).transfer(recipient, prize.perTicketAmount);
-        }if (prize.tokenType == 721) {
+            SunToken20(prize.tokenContract).transfer(
+                recipient,
+                prize.perTicketAmount
+            );
+        }
+        if (prize.tokenType == 721) {
             if (LastHarvestedId[PoolPrizeId] == 0) {
                 LastHarvestedId[PoolPrizeId] = prize.nftIdRangeStart;
             }
-            for (uint i = 0 ; i < prize.perTicketIdCount; i++) {
-                SunToken721(prize.tokenContract).transferFrom(address(this), recipient,  LastHarvestedId[PoolPrizeId] + i);
+            for (uint256 i = 0; i < prize.perTicketIdCount; i++) {
+                SunToken721(prize.tokenContract).transferFrom(
+                    address(this),
+                    recipient,
+                    LastHarvestedId[PoolPrizeId] + i
+                );
             }
             LastHarvestedId[PoolPrizeId] += prize.perTicketIdCount;
-        }if (prize.tokenType == 1155) {
+        }
+        if (prize.tokenType == 1155) {
             SunToken1155 nft = SunToken1155(prize.tokenContract);
-            nft.safeTransferFrom(address(this) , recipient,  prize.nft1155Id, prize.perTicketNFTShareCount, "") ;
+            nft.safeTransferFrom(
+                address(this),
+                recipient,
+                prize.nft1155Id,
+                prize.perTicketNFTShareCount,
+                ""
+            );
         }
     }
 
     function NewPrizePool(uint256 PrizePoolId, PrizePool memory prize) public {
         require(!(PrizePools[PrizePoolId].init));
-        require(TicketCount(prize) > 1 , "No Ticket can be accpeted with given struct !");
+        require(
+            TicketCount(prize) > 1,
+            "No Ticket can be accpeted with given struct !"
+        );
         // Transfer nfts and lock them
-        if (prize.tokenType == 20){
-            lockERC20Tokens(prize.tokenContract,prize.totalAmount);
-        }else if (prize.tokenType == 721  ){
-            lockERC721Tokens(prize.tokenContract,prize.nftIdRangeStart, prize.nftIdRangeEnd);
-        }else if (prize.tokenType == 1155  ){
-            lockERC1155Tokens(prize.tokenContract,prize.nft1155Id,prize.totalNFTValue);
+        if (prize.tokenType == 20) {
+            lockERC20Tokens(prize.tokenContract, prize.totalAmount);
+        } else if (prize.tokenType == 721) {
+            lockERC721Tokens(
+                prize.tokenContract,
+                prize.nftIdRangeStart,
+                prize.nftIdRangeEnd
+            );
+        } else if (prize.tokenType == 1155) {
+            lockERC1155Tokens(
+                prize.tokenContract,
+                prize.nft1155Id,
+                prize.totalNFTValue
+            );
         }
         prize.init = true;
         prize.used = false;
         PrizePoolsIDs.push(PrizePoolId);
         PrizePools[PrizePoolId] = prize;
     }
-
 }
-
 
 // File contracts/Stakeing/SunPool.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
-
-contract StakePools is StakePoolPrize { 
-
+contract StakePools is StakePoolPrize {
     // enum PoolState { Created, Locked, Paused } // Enum
-    
-    mapping (uint256 => Pool) public Pools;
-    mapping (uint256 => uint256[]) internal poolPrizes;
+
+    mapping(uint256 => Pool) public Pools;
+    mapping(uint256 => uint256[]) internal poolPrizes;
     uint256[] public PoolsIDs;
 
-
-    struct Pool { 
-        string Name ;
-        uint256 StartTime ; 
-        uint256 Duration ; 
+    struct Pool {
+        string Name;
+        uint256 StartTime;
+        uint256 Duration;
         uint256 TotalTicketCount;
         address StakeingToken;
         uint256 tokensPerTicket;
         // refers to prize mapping!;
-        // Aparently solidity does not support this feature yet :)  
+        // Aparently solidity does not support this feature yet :)
         // uint256[] prizes;
         bool init;
     }
 
-
-    function CheckPrizePool(uint256[] memory prizes ,Pool memory pool) public view returns (bool) {
-        for (uint i = 0; i < prizes.length; i++) {
-            if (PrizePools[prizes[i]].used){
+    function CheckPrizePool(
+        uint256[] memory prizes,
+        Pool memory pool
+    ) public view returns (bool) {
+        for (uint256 i = 0; i < prizes.length; i++) {
+            if (PrizePools[prizes[i]].used) {
                 return false;
             }
-            if (pool.TotalTicketCount != TicketCountById(prizes[i])){
+            if (pool.TotalTicketCount != TicketCountById(prizes[i])) {
                 return false;
             }
         }
         return true;
     }
 
-    function NewPoolPolicy(uint256 PoolId ,Pool memory pool, uint256[] memory prizes) public {
+    function NewPoolPolicy(
+        uint256 PoolId,
+        Pool memory pool,
+        uint256[] memory prizes
+    ) public {
         // poolPrizes[PoolId] = prizes;
-        // uint256[] memory prizes = poolPrizes[PoolId]; 
+        // uint256[] memory prizes = poolPrizes[PoolId];
         // TODO - double check this ....
         // require(block.timestamp >= pool.StartTime && pool.Duration >= 15, "Times set for pool does not make sense :(");
         require(!(Pools[PoolId].init), "pool with the same id exists");
-        require(pool.TotalTicketCount > 1 , "No Ticket can be accpeted with given struct !");
-        require(CheckPrizePool(prizes,pool) , "Either one of the prize pools TicketCount missmatch or is used by another pool or non existant!");
-        // Set prize pool used 
+        require(
+            pool.TotalTicketCount > 1,
+            "No Ticket can be accpeted with given struct !"
+        );
+        require(
+            CheckPrizePool(prizes, pool),
+            "Either one of the prize pools TicketCount missmatch or is used by another pool or non existant!"
+        );
+        // Set prize pool used
         poolPrizes[PoolId] = prizes;
-        for (uint i = 0; i < prizes.length; i++) {
+        for (uint256 i = 0; i < prizes.length; i++) {
             PrizePools[prizes[i]].used = true;
         }
-        
+
         pool.init = true;
         PoolsIDs.push(PoolId);
         Pools[PoolId] = pool;
     }
-
-
 }
-
 
 // File contracts/Stakeing/SunNFTStakeing.sol
 
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
-
-
-
-
-
-
-
-contract StakeingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721Holder ,ERC1155Holder, StakePools{
+contract StakeingPool is
+    ERC1155,
+    Ownable,
+    ERC1155Burnable,
+    ERC1155Supply,
+    ERC721Holder,
+    ERC1155Holder,
+    StakePools
+{
     constructor() ERC1155("sun.city.pool") {}
 
     function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
     }
 
-
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override( ERC1155, ERC1155Receiver) returns (bool) {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view virtual override(ERC1155, ERC1155Receiver) returns (bool) {
         return
             interfaceId == type(IERC1155).interfaceId ||
             interfaceId == type(IERC1155MetadataURI).interfaceId ||
             super.supportsInterface(interfaceId);
     }
-
 
     /*
     This act like creating a new Stakeing pool in which each user has a portion of pool by having value
@@ -4458,59 +4942,88 @@ contract StakeingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
     - id coresponds to a pool id 
     - each poolid is like a nft of it's own which mean it can store metadata :)
     */
-    function Stake(uint256 PoolId ) public  {
+    function Stake(uint256 PoolId) public {
         Pool storage pool = Pools[PoolId];
-        require(pool.init , "Pool not yet initiated !");
+        require(pool.init, "Pool not yet initiated !");
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
         SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
-        if (token.transferFrom(msg.sender, address(this), pool.tokensPerTicket) == true){
+        if (
+            token.transferFrom(
+                msg.sender,
+                address(this),
+                pool.tokensPerTicket
+            ) == true
+        ) {
             // ONE ticket
-            this.safeTransferFrom(address(this), msg.sender, PoolId, 1,"");
-        }
-    }
-    function StakeMany(uint256 PoolId,uint256 amount ) public  {
-        Pool storage pool = Pools[PoolId];
-        require(pool.init , "Pool not yet initiated !");
-        require(block.timestamp < pool.StartTime, "Pool started can not stake");
-        SunToken20 token = SunToken20(pool.StakeingToken);
-        // Lock Tokens
-        if (token.transferFrom(msg.sender, address(this), pool.tokensPerTicket* amount) == true){
-            // ONE ticket
-            this.safeTransferFrom(address(this), msg.sender, PoolId, amount,"");
+            this.safeTransferFrom(address(this), msg.sender, PoolId, 1, "");
         }
     }
 
-    function UnStake(uint256 PoolId ,uint256 value) public  {
-        unStake(msg.sender, PoolId,value);
+    function StakeMany(uint256 PoolId, uint256 amount) public {
+        Pool storage pool = Pools[PoolId];
+        require(pool.init, "Pool not yet initiated !");
+        require(block.timestamp < pool.StartTime, "Pool started can not stake");
+        SunToken20 token = SunToken20(pool.StakeingToken);
+        // Lock Tokens
+        if (
+            token.transferFrom(
+                msg.sender,
+                address(this),
+                pool.tokensPerTicket * amount
+            ) == true
+        ) {
+            // ONE ticket
+            this.safeTransferFrom(
+                address(this),
+                msg.sender,
+                PoolId,
+                amount,
+                ""
+            );
+        }
     }
-    function unStake(address account, uint256 PoolId ,uint256 value) private  {
+
+    function UnStake(uint256 PoolId, uint256 value) public {
+        unStake(msg.sender, PoolId, value);
+    }
+
+    function unStake(address account, uint256 PoolId, uint256 value) private {
         // Burning is not the best solution since it makes the unharested prize invalid ?)
         Pool storage pool = Pools[PoolId];
-        require(this.balanceOf(account , PoolId) >= value,"insuffiant balance");
+        require(this.balanceOf(account, PoolId) >= value, "insuffiant balance");
         SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
         uint256 tokensToReturn = pool.tokensPerTicket * value;
-        if (token.transfer(account, tokensToReturn) == true){
+        if (token.transfer(account, tokensToReturn) == true) {
             this.burn(account, PoolId, value);
         }
     }
-    
-    function HarvestMe(uint256 PoolId ) public  {
-      Harvest(msg.sender, PoolId, msg.sender);
+
+    function HarvestMe(uint256 PoolId) public {
+        Harvest(msg.sender, PoolId, msg.sender);
     }
-    function HarvestAndUnStakeMe(uint256 PoolId ) public  {
-      Harvest(msg.sender, PoolId, msg.sender);
-      unStake(msg.sender, PoolId,this.balanceOf(msg.sender,PoolId) );
+
+    function HarvestAndUnStakeMe(uint256 PoolId) public {
+        Harvest(msg.sender, PoolId, msg.sender);
+        unStake(msg.sender, PoolId, this.balanceOf(msg.sender, PoolId));
     }
+
     // Only Famres user's prize
-    function Harvest(address account , uint256 PoolId , address recipient) public  {
+    function Harvest(
+        address account,
+        uint256 PoolId,
+        address recipient
+    ) public {
         Pool storage pool = Pools[PoolId];
-        require(block.timestamp > pool.StartTime + pool.Duration, "Pool's Duration is not finished");
-        for (uint i = 0; i < this.balanceOf(account,PoolId); i++) {
-            for (uint j = 0; j < poolPrizes[PoolId].length; j++) {
-                harvestPrizePool(account,poolPrizes[PoolId][j], recipient);
-            }       
+        require(
+            block.timestamp > pool.StartTime + pool.Duration,
+            "Pool's Duration is not finished"
+        );
+        for (uint256 i = 0; i < this.balanceOf(account, PoolId); i++) {
+            for (uint256 j = 0; j < poolPrizes[PoolId].length; j++) {
+                harvestPrizePool(account, poolPrizes[PoolId][j], recipient);
+            }
         }
     }
 
@@ -4520,19 +5033,28 @@ contract StakeingPool is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply,ERC721
         // Admin - Can Harvest non-Stakeed prizes (بی صاحابا)
         Pool storage pool = Pools[PoolId];
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
-        Harvest(address(this),PoolId,msg.sender);
+        Harvest(address(this), PoolId, msg.sender);
     }
 
-    function CreatePool(uint256 PoolId, Pool memory pool,uint256[] memory prizes, bytes memory data)  public onlyOwner {
-        NewPoolPolicy(PoolId , pool, prizes);
+    function CreatePool(
+        uint256 PoolId,
+        Pool memory pool,
+        uint256[] memory prizes,
+        bytes memory data
+    ) public onlyOwner {
+        NewPoolPolicy(PoolId, pool, prizes);
         _mint(address(this), PoolId, pool.TotalTicketCount, data);
     }
 
     // The following functions are overrides required by Solidity.
-    function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        internal
-        override(ERC1155, ERC1155Supply)
-    {
+    function _beforeTokenTransfer(
+        address operator,
+        address from,
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        bytes memory data
+    ) internal override(ERC1155, ERC1155Supply) {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 }

@@ -2,7 +2,7 @@ import { BigNumber } from "ethers";
 import { ethers } from "hardhat";
 
 async function main() {
-  const SunCity = await ethers.getContractFactory("SunCity");
+  const SunCity = await ethers.getContractFactory("SunToken20");
   const CollectionNumber = 1;
   const gasPrice = await ethers.provider.getGasPrice();
   console.log(`Current Gas Price is ${gasPrice}`);
