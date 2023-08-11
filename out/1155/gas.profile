@@ -2,26 +2,27 @@
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1935400 = infinite
+   infinite + 2044400 = infinite
 external:
    balanceOf(address,uint256):	2723
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2517
+   exists(uint256):	2539
    isApprovedForAll(address,address):	infinite
    mint(address,uint256,uint256,bytes):	infinite
    mintBatch(address,uint256[],uint256[],bytes):	infinite
    name():	infinite
-   owner():	2346
+   owner():	2368
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26772
+   setApprovalForAll(address,bool):	26728
+   setTokenURI(uint256,string):	infinite
    setURI(string):	infinite
    supportsInterface(bytes4):	583
    symbol():	infinite
-   totalSupply(uint256):	2472
+   totalSupply(uint256):	2494
    transferOwnership(address):	28387
    uri(uint256):	infinite
 internal:
@@ -70,6 +71,9 @@ Gas estimation:
 ======= contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol:ERC1155Supply =======
 Gas estimation:
 
+======= contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol:ERC1155URIStorage =======
+Gas estimation:
+
 ======= contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol:IERC1155MetadataURI =======
 Gas estimation:
 
@@ -95,8 +99,50 @@ internal:
 ======= contracts/openzeppelin/contracts/utils/Context.sol:Context =======
 Gas estimation:
 
+======= contracts/openzeppelin/contracts/utils/Strings.sol:Strings =======
+Gas estimation:
+construction:
+   103 + 17200 = 17303
+internal:
+   equal(string memory,string memory):	infinite
+   toHexString(address):	infinite
+   toHexString(uint256):	infinite
+   toHexString(uint256,uint256):	infinite
+   toString(int256):	infinite
+   toString(uint256):	infinite
+
 ======= contracts/openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165 =======
 Gas estimation:
 
 ======= contracts/openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165 =======
 Gas estimation:
+
+======= contracts/openzeppelin/contracts/utils/math/Math.sol:Math =======
+Gas estimation:
+construction:
+   103 + 17200 = 17303
+internal:
+   average(uint256,uint256):	infinite
+   ceilDiv(uint256,uint256):	infinite
+   log10(uint256):	infinite
+   log10(uint256,enum Math.Rounding):	infinite
+   log2(uint256):	infinite
+   log2(uint256,enum Math.Rounding):	infinite
+   log256(uint256):	infinite
+   log256(uint256,enum Math.Rounding):	infinite
+   max(uint256,uint256):	infinite
+   min(uint256,uint256):	infinite
+   mulDiv(uint256,uint256,uint256):	infinite
+   mulDiv(uint256,uint256,uint256,enum Math.Rounding):	infinite
+   sqrt(uint256):	infinite
+   sqrt(uint256,enum Math.Rounding):	infinite
+
+======= contracts/openzeppelin/contracts/utils/math/SignedMath.sol:SignedMath =======
+Gas estimation:
+construction:
+   103 + 17200 = 17303
+internal:
+   abs(int256):	infinite
+   average(int256,int256):	infinite
+   max(int256,int256):	infinite
+   min(int256,int256):	infinite

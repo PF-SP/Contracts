@@ -83,26 +83,27 @@ internal:
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1935400 = infinite
+   infinite + 2044400 = infinite
 external:
    balanceOf(address,uint256):	2723
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2517
+   exists(uint256):	2539
    isApprovedForAll(address,address):	infinite
    mint(address,uint256,uint256,bytes):	infinite
    mintBatch(address,uint256[],uint256[],bytes):	infinite
    name():	infinite
-   owner():	2346
+   owner():	2368
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26772
+   setApprovalForAll(address,bool):	26728
+   setTokenURI(uint256,string):	infinite
    setURI(string):	infinite
    supportsInterface(bytes4):	583
    symbol():	infinite
-   totalSupply(uint256):	2472
+   totalSupply(uint256):	2494
    transferOwnership(address):	28387
    uri(uint256):	infinite
 internal:
@@ -111,12 +112,12 @@ internal:
 ======= contracts/Sun721NFT.sol:SunToken721 =======
 Gas estimation:
 construction:
-   infinite + 1468800 = infinite
+   infinite + 1491800 = infinite
 external:
    approve(address,uint256):	infinite
    balanceOf(address):	2635
    burn(uint256):	infinite
-   getApproved(uint256):	4792
+   getApproved(uint256):	4770
    isApprovedForAll(address,address):	infinite
    name():	infinite
    owner():	2376
@@ -126,6 +127,7 @@ external:
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
    setApprovalForAll(address,bool):	26772
+   setTokenURI(uint256,string):	infinite
    supportsInterface(bytes4):	infinite
    symbol():	infinite
    tokenURI(uint256):	infinite
@@ -218,6 +220,9 @@ Gas estimation:
 Gas estimation:
 
 ======= contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol:ERC1155Supply =======
+Gas estimation:
+
+======= contracts/openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol:ERC1155URIStorage =======
 Gas estimation:
 
 ======= contracts/openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol:IERC1155MetadataURI =======

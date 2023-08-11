@@ -1710,45 +1710,52 @@ pragma solidity ^0.8.9;
 
 
 contract SunToken721 is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
-    uint256 public totalSupply; 
-    constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
+    uint256 public totalSupply;
+
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) ERC721(_name, _symbol) {}
+
     // constructor() ERC721("SunCity", _symbol) {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "Sun.city";
+        return "";
     }
 
-    function safeMint(address to, uint256 tokenId, string memory uri)
-        public
-        onlyOwner
-    {
+    function safeMint(
+        address to,
+        uint256 tokenId,
+        string memory uri
+    ) public onlyOwner {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
         totalSupply += 1;
     }
 
     // The following functions are overrides required by Solidity.
-
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (bool)
-    {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    function _burn(
+        uint256 tokenId
+    ) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
+    }
+
+    function setTokenURI(
+        uint256 tokenId,
+        string memory newData
+    ) public onlyOwner {
+        super._setTokenURI(tokenId, newData);
     }
 }

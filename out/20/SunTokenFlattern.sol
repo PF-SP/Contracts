@@ -2098,8 +2098,11 @@ pragma solidity ^0.8.9;
 
 
 contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
-    constructor(string memory _name, string memory _symbol) ERC20( _name, _symbol) ERC20Permit( _name) {
-        _mint(msg.sender, 100000 * 10 ** decimals());
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) ERC20(_name, _symbol) ERC20Permit(_name) {
+        _mint(msg.sender, 10000000000000 * 10 ** decimals());
     }
 
     function pause() public onlyOwner {
@@ -2114,11 +2117,11 @@ contract SunToken20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
         _mint(to, amount);
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        whenNotPaused
-        override
-    {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal override whenNotPaused {
         super._beforeTokenTransfer(from, to, amount);
     }
 }

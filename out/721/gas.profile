@@ -2,12 +2,12 @@
 ======= contracts/Sun721NFT.sol:SunToken721 =======
 Gas estimation:
 construction:
-   infinite + 1468800 = infinite
+   infinite + 1491800 = infinite
 external:
    approve(address,uint256):	infinite
    balanceOf(address):	2635
    burn(uint256):	infinite
-   getApproved(uint256):	4792
+   getApproved(uint256):	4770
    isApprovedForAll(address,address):	infinite
    name():	infinite
    owner():	2376
@@ -17,6 +17,7 @@ external:
    safeTransferFrom(address,address,uint256):	infinite
    safeTransferFrom(address,address,uint256,bytes):	infinite
    setApprovalForAll(address,bool):	26772
+   setTokenURI(uint256,string):	infinite
    supportsInterface(bytes4):	infinite
    symbol():	infinite
    tokenURI(uint256):	infinite
