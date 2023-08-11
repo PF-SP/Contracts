@@ -2,9 +2,9 @@
 ======= contracts/Sun1155NFT.sol:SunToken1155 =======
 Gas estimation:
 construction:
-   infinite + 1890400 = infinite
+   infinite + 1935400 = infinite
 external:
-   balanceOf(address,uint256):	2700
+   balanceOf(address,uint256):	2723
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
@@ -12,13 +12,15 @@ external:
    isApprovedForAll(address,address):	infinite
    mint(address,uint256,uint256,bytes):	infinite
    mintBatch(address,uint256[],uint256[],bytes):	infinite
-   owner():	2368
+   name():	infinite
+   owner():	2346
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
    setApprovalForAll(address,bool):	26772
    setURI(string):	infinite
-   supportsInterface(bytes4):	560
+   supportsInterface(bytes4):	583
+   symbol():	infinite
    totalSupply(uint256):	2472
    transferOwnership(address):	28387
    uri(uint256):	infinite

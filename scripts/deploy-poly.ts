@@ -25,14 +25,18 @@ async function deployNFT721() {
 
 async function deployNFT1155() {
   const SunNft1155 = await ethers.getContractFactory("SunToken1155");
-  const pool = await SunNft1155.deploy({ ...gasDetails });
+  const pool = await SunNft1155.deploy(`SunCityNFT`, "SUN", { ...gasDetails });
   await pool.deployed();
   return pool;
 }
 
 async function deployStakeingPool() {
   const SunStakeingPool = await ethers.getContractFactory("StakeingPool");
-  const staking = await SunStakeingPool.deploy({ ...gasDetails });
+  const staking = await SunStakeingPool.deploy(
+    `SunCityNFT Staking Pool`,
+    "SUN",
+    { ...gasDetails },
+  );
   await staking.deployed();
   return staking;
 }
