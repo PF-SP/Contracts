@@ -2,45 +2,47 @@
 ======= contracts/Stakeing/SunNFTStakeing.sol:StakeingPool =======
 Gas estimation:
 construction:
-   infinite + 3516000 = infinite
+   infinite + 3528200 = infinite
 external:
    CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
    CreatePool(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[],bytes):	infinite
    Drain(uint256):	infinite
-   Harvest(address,uint256,address):	infinite
+   Harvest(uint256,address,uint256,address):	infinite
    HarvestAndUnStakeMe(uint256):	infinite
    HarvestMe(uint256):	infinite
-   HarvestedPrizes(address,uint256):	2714
+   HarvestedPrizes(address,uint256):	2692
+   LastHarvestedId(uint256):	2517
+   NFT721ArrayOfIDs(uint256,uint256):	4720
    NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
-   PoolsIDs(uint256):	4654
-   PrizePools(uint256):	19758
-   PrizePoolsIDs(uint256):	4631
+   PoolsIDs(uint256):	4632
+   PrizePools(uint256):	19781
+   PrizePoolsIDs(uint256):	4654
    Stake(uint256):	infinite
    StakeMany(uint256,uint256):	infinite
    TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    TicketCountById(uint256):	infinite
-   UnStake(uint256,uint256):	infinite
-   balanceOf(address,uint256):	2723
+   balanceOf(address,uint256):	2746
    balanceOfBatch(address[],uint256[]):	infinite
    burn(address,uint256,uint256):	infinite
    burnBatch(address,uint256[],uint256[]):	infinite
-   exists(uint256):	2518
+   exists(uint256):	2519
    isApprovedForAll(address,address):	infinite
    name():	infinite
    onERC1155BatchReceived(address,address,uint256[],uint256[],bytes):	infinite
    onERC1155Received(address,address,uint256,uint256,bytes):	infinite
    onERC721Received(address,address,uint256,bytes):	infinite
-   owner():	2413
+   owner():	2391
+   poolPrizes(uint256,uint256):	4766
    renounceOwnership():	infinite
    safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):	infinite
    safeTransferFrom(address,address,uint256,uint256,bytes):	infinite
-   setApprovalForAll(address,bool):	26801
+   setApprovalForAll(address,bool):	26779
    setURI(string):	infinite
    supportsInterface(bytes4):	infinite
    symbol():	infinite
-   totalSupply(uint256):	2495
+   totalSupply(uint256):	2538
    transferOwnership(address):	28412
    uri(uint256):	infinite
 internal:
@@ -50,25 +52,30 @@ internal:
 ======= contracts/Stakeing/SunPool.sol:StakePools =======
 Gas estimation:
 construction:
-   1248 + 1197600 = 1198848
+   1288 + 1240400 = 1241688
 external:
    CheckPrizePool(uint256[],(string,uint256,uint256,uint256,address,uint256,bool)):	infinite
    HarvestedPrizes(address,uint256):	2646
+   LastHarvestedId(uint256):	2451
+   NFT721ArrayOfIDs(uint256,uint256):	4742
    NewPoolPolicy(uint256,(string,uint256,uint256,uint256,address,uint256,bool),uint256[]):	infinite
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    Pools(uint256):	infinite
-   PoolsIDs(uint256):	4587
-   PrizePools(uint256):	19751
+   PoolsIDs(uint256):	4609
+   PrizePools(uint256):	19773
    PrizePoolsIDs(uint256):	4608
    TicketCount((bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    TicketCountById(uint256):	infinite
+   poolPrizes(uint256,uint256):	4677
 
 ======= contracts/Stakeing/SunPoolPrize.sol:StakePoolPrize =======
 Gas estimation:
 construction:
-   728 + 697000 = 697728
+   760 + 728200 = 728960
 external:
    HarvestedPrizes(address,uint256):	2646
+   LastHarvestedId(uint256):	2428
+   NFT721ArrayOfIDs(uint256,uint256):	4720
    NewPrizePool(uint256,(bool,bool,uint16,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)):	infinite
    PrizePools(uint256):	19706
    PrizePoolsIDs(uint256):	4608

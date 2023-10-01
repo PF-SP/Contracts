@@ -12,19 +12,19 @@ const configs = {
 }
 
 
-describe("StakeingPool", function () {
-    this.beforeAll("Setup", async function () {
+describe("StakeingPool", function() {
+    this.beforeAll("Setup", async function() {
 
         const [owner, u1, u2] = await hre.ethers.getSigners();
 
         Stakeing = await hre.ethers.getContractFactory("StakeingPool");
-        Stakeing = await Stakeing.deploy();
+        Stakeing = await Stakeing.deploy("SunCity", "SUN");
 
         NFT721 = await hre.ethers.getContractFactory("SunToken721");
         nft721 = await NFT721.deploy("SunCity", "SUN");
 
         NFT1155 = await hre.ethers.getContractFactory("SunToken1155");
-        nft1155 = await NFT1155.deploy();
+        nft1155 = await NFT1155.deploy("SunCity", "SUN");
 
 
         Token = await hre.ethers.getContractFactory("SunToken20");
@@ -51,7 +51,7 @@ describe("StakeingPool", function () {
     // //TODO - Harvesting
 
 
-    it("PrizePoolCreation", async function () {// async function run() {
+    it("PrizePoolCreation", async function() {// async function run() {
 
         const [owner, u1, u2] = await hre.ethers.getSigners();
 
@@ -59,7 +59,7 @@ describe("StakeingPool", function () {
         nft721 = await NFT721.deploy("SunCity", "SUN");
 
         NFT1155 = await hre.ethers.getContractFactory("SunToken1155");
-        nft1155 = await NFT1155.deploy();
+        nft1155 = await NFT1155.deploy("SunCity", "SUN");
 
 
         const ownerNfts = []
@@ -70,7 +70,7 @@ describe("StakeingPool", function () {
         }
 
         Stakeing = await hre.ethers.getContractFactory("StakeingPool");
-        Stakeing = await Stakeing.deploy();
+        Stakeing = await Stakeing.deploy("SunCity", "SUN");
 
         await nft721.setApprovalForAll(Stakeing.address, true)
 

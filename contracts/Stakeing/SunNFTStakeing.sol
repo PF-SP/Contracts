@@ -100,10 +100,6 @@ contract StakeingPool is
         }
     }
 
-    function UnStake(uint256 PoolId, uint256 value) public {
-        unStake(msg.sender, PoolId, value);
-    }
-
     function unStake(address account, uint256 PoolId, uint256 value) private {
         // Burning is not the best solution since it makes the unharested prize invalid ?)
         Pool storage pool = Pools[PoolId];
@@ -111,36 +107,42 @@ contract StakeingPool is
         SunToken20 token = SunToken20(pool.StakeingToken);
         // Lock Tokens
         uint256 tokensToReturn = pool.tokensPerTicket * value;
-        if (token.transfer(account, tokensToReturn) == true) {
-            this.burn(account, PoolId, value);
-        }
+        token.transfer(account, tokensToReturn);
+        // if (token.transfer(account, tokensToReturn) == true) {
+        //     this.burn(account, PoolId, value);
+        // }
     }
 
     function HarvestMe(uint256 PoolId) public {
-        Harvest(msg.sender, PoolId, msg.sender);
+        uint256 amount = this.balanceOf(msg.sender, PoolId);
+        Harvest(amount, msg.sender, PoolId, msg.sender);
     }
 
     function HarvestAndUnStakeMe(uint256 PoolId) public {
-        Harvest(msg.sender, PoolId, msg.sender);
-        unStake(msg.sender, PoolId, this.balanceOf(msg.sender, PoolId));
+        uint256 amount = this.balanceOf(msg.sender, PoolId);
+        unStake(msg.sender, PoolId, amount);
+        Harvest(amount, msg.sender, PoolId, msg.sender);
     }
 
     // Only Famres user's prize
     function Harvest(
+        uint256 amount,
         address account,
         uint256 PoolId,
         address recipient
     ) public {
         Pool storage pool = Pools[PoolId];
+        require(amount > 0, "You Don't have enough tickets");
         require(
             block.timestamp > pool.StartTime + pool.Duration,
             "Pool's Duration is not finished"
         );
-        for (uint256 i = 0; i < this.balanceOf(account, PoolId); i++) {
+        for (uint256 i = 0; i < amount; i++) {
             for (uint256 j = 0; j < poolPrizes[PoolId].length; j++) {
                 harvestPrizePool(account, poolPrizes[PoolId][j], recipient);
             }
         }
+        _burn(account, PoolId, amount);
     }
 
     function Drain(uint256 PoolId) public onlyOwner {
@@ -149,7 +151,8 @@ contract StakeingPool is
         // Admin - Can Harvest non-Stakeed prizes (بی صاحابا)
         Pool storage pool = Pools[PoolId];
         require(block.timestamp < pool.StartTime, "Pool started can not stake");
-        Harvest(address(this), PoolId, msg.sender);
+        uint256 amount = this.balanceOf(msg.sender, PoolId);
+        Harvest(amount, address(this), PoolId, msg.sender);
     }
 
     function CreatePool(

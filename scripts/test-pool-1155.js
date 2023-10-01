@@ -1,19 +1,17 @@
-// async function run() {
-
 const [owner, u1, u2] = await hre.ethers.getSigners();
 
 NFT721 = await hre.ethers.getContractFactory("SunToken721");
 nft721 = await NFT721.deploy("SunCity", "SUN");
 
 NFT1155 = await hre.ethers.getContractFactory("SunToken1155");
-nft1155 = await NFT1155.deploy();
+nft1155 = await NFT1155.deploy("SunCity", "SUN");
 
 NFTIndex = 25
 
 await nft1155.mint(owner.address, NFTIndex, 10000000000, "0x")
 
 Stakeing = await hre.ethers.getContractFactory("StakeingPool");
-Stakeing = await Stakeing.deploy();
+Stakeing = await Stakeing.deploy("SunCity", "SUN");
 
 await nft1155.setApprovalForAll(Stakeing.address, true)
 
@@ -57,8 +55,8 @@ token = await Token.deploy("SunCity", "SUN");
 
 var pool = {
     Name: "test",
-    StartTime: Math.ceil(Date.now() / 1000) + 100,
-    Duration: 100,
+    StartTime: Math.ceil(Date.now() / 1000) + 5,
+    Duration: 2,
     TotalTicketCount: "1000000000",
     StakeingToken: token.address,
     tokensPerTicket: 10000,
@@ -95,22 +93,22 @@ console.log({ before, after })
 // Immediate response should be failed due to pool not finished
 await Stakeing.HarvestMe(10)
 
-
-var before = {
-    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
-    stakeTokens: await token.balanceOf(Stakeing.address),
-    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
-    ownerTokens: await token.balanceOf(owner.address),
-}
-//User Wants to unStake hence burning it's nft value (aka tickets)
-await Stakeing.UnStake(10, 1)
-var after = {
-    StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
-    stakeTokens: await token.balanceOf(Stakeing.address),
-    ownerNfts: await Stakeing.balanceOf(owner.address, 10),
-    ownerTokens: await token.balanceOf(owner.address),
-}
-console.log({ before, after })
+//
+// var before = {
+//     StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+//     stakeTokens: await token.balanceOf(Stakeing.address),
+//     ownerNfts: await Stakeing.balanceOf(owner.address, 10),
+//     ownerTokens: await token.balanceOf(owner.address),
+// }
+// //User Wants to unStake hence burning it's nft value (aka tickets)
+// await Stakeing.UnStake(10, 1)
+// var after = {
+//     StakeNfts: await Stakeing.balanceOf(Stakeing.address, 10),
+//     stakeTokens: await token.balanceOf(Stakeing.address),
+//     ownerNfts: await Stakeing.balanceOf(owner.address, 10),
+//     ownerTokens: await token.balanceOf(owner.address),
+// }
+// console.log({ before, after })
 
 await Stakeing.HarvestedPrizes(owner.address, 1)
 
@@ -120,7 +118,8 @@ setTimeout(async () => {
         stakeTokens: await token.balanceOf(Stakeing.address),
         ownerTickets: await Stakeing.balanceOf(owner.address, 10),
         ownerTokens: await token.balanceOf(owner.address),
-        ownerPrizeNft: await nft721.balanceOf(owner.address)
+        ownerPrize721Nft: await nft721.balanceOf(owner.address),
+        ownerPrize1155Nft: await nft1155.balanceOf(owner.address, NFTIndex)
     }
 
     await Stakeing.HarvestAndUnStakeMe(10)
@@ -130,8 +129,10 @@ setTimeout(async () => {
         stakeTokens: await token.balanceOf(Stakeing.address),
         ownerNfts: await Stakeing.balanceOf(owner.address, 10),
         ownerTokens: await token.balanceOf(owner.address),
-        ownerPrizeNft: await nft721.balanceOf(owner.address)
+        ownerPrizeNft: await nft721.balanceOf(owner.address),
+        ownerPrize1155Nft: await nft1155.balanceOf(owner.address, NFTIndex)
+
     }
 
     console.log({ before, after })
-}, (100 + 100) * 1000);
+}, 10000);
